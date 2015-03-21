@@ -77,6 +77,6 @@ function wpgs_agordoj_retrovoko_salutnomo() { ?>
  */
 function wpgs_agordoj_retrovoko_pasvorto() { ?>
 	
-	<input name="_wpgs_pasvorto" type="text" id="_wpgs_pasvorto" value="<?php echo esc_attr( get_option( '_wpgs_pasvorto') ); ?>" class="regular-text" />
+	<input name="_wpgs_pasvorto" type="password" id="_wpgs_pasvorto" value="<?php echo esc_attr( get_option( '_wpgs_pasvorto') ); ?>" class="regular-text" />
 	
 <?php }
