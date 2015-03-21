@@ -193,7 +193,7 @@ final class Wp_Gnusocial {
         
         $status = new SimpleXMLElement($respondo);
         
-        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status-id), true);      
+        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->id), true);      
         
     }
 }
