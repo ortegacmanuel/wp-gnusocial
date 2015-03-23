@@ -30,9 +30,12 @@ foreach($fluo->entry as $ero) { ?>
 
 <li class="comment byuser comment-author-<?php echo $ero->author->name; ?> even thread-even depth-1" id="comment-93345">
 
+<!-- 
 <article id="comment-37" class="comment">
 
 <header class="comment-meta comment-author vcard">
+
+-->
 
 <cite class="comment-author"><img alt='' src="<?php echo $ero->author->link[1]->attributes()->href; ?>" class='avatar avatar-48 photo' height='48' width='48' /><a href="<?php echo $ero->author->uri; ?>"  rel="external " class='url'><?php echo $ero->author->name; ?></a></cite>
 
@@ -68,8 +71,8 @@ foreach($fluo->entry as $ero) { ?>
 
 </li><!-- #comment-## -->
 <!--
-</ul><!-- .children -->
-</article>
+</ul><!-- .children 
+</article> -->
 </li><!-- #comment-## -->
 
 <?php } ?>
