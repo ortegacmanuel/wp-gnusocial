@@ -30,20 +30,54 @@ foreach($fluo->entry as $ero) { ?>
 
 
 					<li class="comment byuser comment-author-<?php echo $ero->author->name; ?> even thread-even depth-1" id="comment-93345">
-						<cite class="comment-author"><img alt='' src='<?php echo $ero->author->link[1]->attributes()->href; ?>' class='avatar avatar-48 photo' height='48' width='48' /><a href='http://lasindias.com/indianopedia/manuel-ortega'  rel="external " class='url'>Manuel Ortega</a></cite>
-						<p class="comment-metadata"><a title="Enlace permanente a este comentario" href="http://lasindias.com/como-casar-gnusocial-con-wordpress#comment-93345">19.mar.2015 - 10:28</a></p>
-												
-						<div class="comment-body">
-							<p>Estuve documentando y tengo muy buenas noticias <img src="http://lasindias.com/wp-includes/images/smilies/icon_biggrin.gif" alt=":-D" class="wp-smiley" /></p>
-<p>GNU social ya nos genera el <a href="https://lamatriz.org/api/statusnet/conversation/7757.atom" rel="nofollow">feed de comentarios que necesitamos incrustar en WordPress</a>. Aquí dejo <a href="https://lamatriz.org/api/statusnet/conversation/7757.atom" rel="nofollow">un ejemplo de una conversación</a> en la Matriz.org.</p>
-<p>Vamos a tener un gran finde <img src="http://lasindias.com/wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /></p>
-<p><span class="reply-comment"><a href="http://lasindias.com/como-casar-gnusocial-con-wordpress?replytocom=93345#respond">Responder</a> | <a href="http://lasindias.com/como-casar-gnusocial-con-wordpress#respond">Comentar post</a></span></p>	
-						</div>
-						
-						<p class="edit-comment">  <a class="comment-edit-link" href="http://lasindias.com/wp-admin/comment.php?action=editcomment&amp;c=93345">Editar</a></p>
-						
-</li><!-- #comment-## -->
+					
+					<!-- 
+<article id="comment-37" class="comment">
 
+<header class="comment-meta comment-author vcard">
+
+-->
+
+<cite class="comment-author"><img alt='' src="<?php echo $ero->author->link[1]->attributes()->href; ?>" class='avatar avatar-48 photo' height='48' width='48' /><a href="<?php echo $ero->author->uri; ?>"  rel="external " class='url'><?php echo $ero->author->name; ?></a></cite>
+
+<p class="comment-metadata"><a title="Enlace permanente a este comentario" href="<?php echo $ero->link->attributes()->href; ?>"><?php echo $ero->published; ?></a></p>
+<!-- </header> -->
+
+<!-- <section class="comment-content comment"> -->
+<div class="comment-body">
+
+<p><?php echo $ero->content; ?></p>
+
+<!-- </section> -->
+
+<!-- <div class="reply"> -->
+<p><span class="reply-comment"><a href="<?php echo $respondo_url . '&status_textarea=@' . $ero->author->name . '&nbsp'; ?>">Responder</a>
+
+<!-- </div> -->
+<p class="edit-comment"></p>
+
+<!--
+
+<ul class="children">
+
+<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-93400">
+<cite class="comment-author"><img alt='' src='http://1.gravatar.com/avatar/79346a3b48b1b32b472ea4aa57716eb6?s=48&amp;d=http%3A%2F%2Flasindias.com%2Favatar.png%3Fs%3D48&amp;r=X' class='avatar avatar-48 photo' height='48' width='48' /><a href='http://lasindias.com/indianopedia/david-de-ugarte'  rel="external " class='url'>David de Ugarte</a></cite>
+<p class="comment-metadata"><a title="Enlace permanente a este comentario" href="http://lasindias.com/como-casar-gnusocial-con-wordpress#comment-93400">19.mar.2015 - 14:50</a></p>
+												
+<div class="comment-body">
+<p><img src="http://lasindias.com/wp-includes/images/smilies/icon_biggrin.gif" alt=":-D" class="wp-smiley" /></p>
+<p><span class="reply-comment"><a href="http://lasindias.com/como-casar-gnusocial-con-wordpress?replytocom=93400#respond">Responder</a> | <a href="http://lasindias.com/como-casar-gnusocial-con-wordpress#respond">Comentar post</a></span></p>	
+</div>
+						
+<p class="edit-comment"></p>
+-->
+
+</li>
+
+<!-- #comment-## -->
+<!--
+</ul><!-- .children 
+</article> -->
 <?php } ?>
 
 </ol>
