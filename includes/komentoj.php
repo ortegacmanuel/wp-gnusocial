@@ -20,7 +20,7 @@ $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto='
 <li class="next-comments"></li>
 </ul>
 
-<ol class="comment-list">
+<ol class="comments-list">
 
 <?php
 
