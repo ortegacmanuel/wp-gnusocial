@@ -44,18 +44,19 @@ foreach($fluo->entry as $ero) { ?>
 <cite class="comment-author"><img alt='' src="<?php echo $ero->author->link[1]->attributes()->href; ?>" class='avatar avatar-48 photo' height='48' width='48' /><a href="<?php echo $ero->author->uri; ?>"  rel="external " class='url'><?php echo $ero->author->name; ?></a></cite>
 
 <p class="comment-metadata"><a title="Enlace permanente a este comentario" href="<?php echo $ero->link->attributes()->href; ?>"><?php echo $ero->published; ?></a></p>
-</header>
+<!-- </header> -->
 
-<section class="comment-content comment">										
+<!-- <section class="comment-content comment"> -->
 <div class="comment-body">
 
 <p><?php echo $ero->content; ?></p>
 
-</section>
+<!-- </section> -->
 
-<div class="reply">
+<!-- <div class="reply"> -->
 <p><span class="reply-comment"><a href="<?php echo $respondo_url . '&status_textarea=@' . $ero->author->name . '&nbsp'; ?>">Responder</a>
-</div>
+
+<!-- </div> -->
 <p class="edit-comment"></p>
 
 <!--
