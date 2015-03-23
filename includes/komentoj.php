@@ -15,10 +15,14 @@ $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto='
 
 <div class="respond">
 
+<!--
+
 <div id="comments" class="comments-area">
 
 <h2 class="comments-title">
 Konversacio: <a href="<?php echo $konversacio_url ?>"><?php echo $konversacio_id ?></h2>
+
+-->
 
 <ol class="comment-list">
 
@@ -79,5 +83,5 @@ foreach($fluo->entry as $ero) { ?>
 
 </ol>
 						
-</div>
+<!-- </div> -->
 </div>
