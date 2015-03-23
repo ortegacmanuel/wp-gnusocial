@@ -31,7 +31,7 @@ $title = implode(' ', $words);
 else: $title= get_the_title();
 endif;?>
 
-«<a name="comments"><?php echo $title;?></a>» recibió <a class="genericon-comentario" href="<?php comments_link(); ?>"> <?php echo $fluo->count(); ?></a> desde que se publicó el <?php echo get_the_time(get_option('date_format'))?>. 
+«<a name="comments"><?php echo $title;?></a>» recibió <a class="genericon-comentario" href="<?php comments_link(); ?>"> <?php echo $fluo->entry->count(); ?></a> desde que se publicó el <?php echo get_the_time(get_option('date_format'))?>. 
 
 <?php
 $posttags = get_the_tags();
