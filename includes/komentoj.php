@@ -13,7 +13,7 @@ $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto='
 
 ?>
 
-<div class="respond">
+<div id="respond">
 
 <!--
 
