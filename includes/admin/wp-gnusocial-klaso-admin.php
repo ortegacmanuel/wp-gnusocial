@@ -113,6 +113,20 @@ final class Wp_Gnusocial_Admin {
 	}
 	
 	/**
+	 * Enqueue the scripts.
+	 *
+	 * @since 0.0.1
+	 * 
+	 * @param string $page The current admin page.
+	 * @return void
+	 */
+	public function enqueue_scripts( $page ) {
+
+
+	}
+	
+		
+	/**
 	 * Add and register the settings sections and fields.
 	 *
 	 * @since 0.2.6

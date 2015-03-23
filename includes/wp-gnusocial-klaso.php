@@ -130,6 +130,8 @@ final class Wp_Gnusocial {
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo de WordPress A
 		add_action( 'publish_post', array( $this, 'gs_publikigo' ) );
 		
+		add_filter('comments_template', array( $this, 'load_comments_wpgs_template' ));
+		
 	}
 	
 	/**
@@ -173,7 +175,7 @@ final class Wp_Gnusocial {
 		wp_enqueue_style( 'av-styles', plugin_dir_url( __FILE__ ) . 'assets/styles.css' );
 	}
 	
-    function gs_publikigo() {
+    public function gs_publikigo() {
     
         $post = get_post($ID);
         
@@ -195,5 +197,12 @@ final class Wp_Gnusocial {
         
         add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->id), true);      
         
+    }
+    
+    public function load_comments_wpgs_template($comment_template){
+        
+        if( !(get_post_meta( get_the_ID(), 'wpgs_conversation_id', true ) == '') ) {
+            return dirname(__FILE__) . '/komentoj.php';
+        }
     }
 }
