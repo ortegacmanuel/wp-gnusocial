@@ -11,6 +11,10 @@ $konversacio_url = 'http://' . $nodo_url . '/conversation/' .  $konversacio_id;
 
 $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto=' . $konversacio_id;
 
+$fluo = simplexml_load_file($rss_fluo_url);
+
+$x = $fluo->getElementsByTagName('entry');
+
 ?>
 
 <!-- You can start editing here. -->
@@ -29,7 +33,7 @@ $title = implode(' ', $words);
 else: $title= get_the_title();
 endif;?>
 
-«<a name="comments"><?php echo $title;?></a>» recibió <a class="genericon-comentario" href="<?php comments_link(); ?>"> <?php comments_number('0 ','1 ','% '); ?></a> desde que se publicó el <?php echo get_the_time(get_option('date_format'))?>. 
+«<a name="comments"><?php echo $title;?></a>» recibió <a class="genericon-comentario" href="<?php comments_link(); ?>"> <?php echo $x->length; ?></a> desde que se publicó el <?php echo get_the_time(get_option('date_format'))?>. 
 
 <?php
 $posttags = get_the_tags();
@@ -52,8 +56,6 @@ Si te ha gustado este post quizá te gusten otros <strong>posts escritos por <a 
 <ol class="comments-list">
 
 <?php
-
-$fluo = simplexml_load_file($rss_fluo_url);
 
 foreach($fluo->entry as $ero) { ?>
 
