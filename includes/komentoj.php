@@ -13,6 +13,8 @@ $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto='
 
 ?>
 
+<div class="respond">
+
 <div id="comments" class="comments-area">
 
 <h2 class="comments-title">
@@ -74,4 +76,5 @@ foreach($fluo->entry as $ero) { ?>
 
 </ol>
 						
+</div>
 </div>
