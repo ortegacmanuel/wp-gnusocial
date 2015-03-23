@@ -13,6 +13,35 @@ $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&inreplyto='
 
 ?>
 
+<!-- You can start editing here. -->
+
+<?php if ( in_category('miniposts') ) {?>
+<p class="infopost">
+<?php } else { ?><p class="infomaxipost"><? } ?>
+
+<?
+if (( get_post_status ( $ID ) == 'private' ) OR (!empty($post->post_password))) :
+$words = explode(' ', the_title('', '',  false));
+$count = count($words);
+$count = $count-1;
+$words[$count] = '<span>'.$words[$count].'</span>';
+$title = implode(' ', $words);
+else: $title= get_the_title();
+endif;?>
+
+«<a name="comments"><?php echo $title;?></a>» recibió <a class="genericon-comentario" href="<?php comments_link(); ?>"> <?php comments_number('0 ','1 ','% '); ?></a> desde que se publicó el <?php echo get_the_time(get_option('date_format'))?>. 
+
+<?php
+$posttags = get_the_tags();
+if (($posttags) AND ($enlaces==0)):
+$taxonomy = "post_tag";
+$term_slug = $tag->slug;
+$term = get_term_by('slug', $term_slug, $taxonomy);?>
+ dentro de la serie «<?php echo get_the_tag_list('','','');?>»
+<?php endif;?>
+Si te ha gustado este post quizá te gusten otros <strong>posts escritos por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></strong>.</p>
+
+
 <div id="respond">
 
 <ul class="comments-navigation">
