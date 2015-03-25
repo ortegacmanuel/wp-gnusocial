@@ -251,16 +251,19 @@ final class Wp_Gnusocial {
     }
     
     public function wpgs_comment_form_fields( $fields ) {
-            $commenter = wp_get_current_commenter();
-            $req = get_option( 'require_name_email' );
-            $aria_req = ( $req ? " aria-required='true'" : '' );
-            $html5 = current_theme_supports( 'html5', 'comment-form' ) ? 1 : 0;
+    
+         global $post;
+
+        if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
             $fields = array(
             'author' => '',
             'email' => '',
             'url' => '',
             );
-            return $fields;
+            
+       }
+       
+       return $fields;
     }
     
     public function wpgs_comment_form( $args ) {
@@ -270,9 +273,10 @@ final class Wp_Gnusocial {
 
             $args['comment_field'] = '';
             $args['comment_notes_after'] = '';
-            $args['logged_in_as'] = '';
-            return $args;        
+            $args['logged_in_as'] = '';        
         }
+        
+        return $args;
     }
     
     public function wpgs_comment_button() {
