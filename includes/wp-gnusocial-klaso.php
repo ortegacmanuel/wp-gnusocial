@@ -139,6 +139,8 @@ final class Wp_Gnusocial {
         add_filter( 'comment_form_defaults', array( $this, 'wpgs_comment_form' ) );
         
         add_action('comment_form', array( $this, 'wpgs_comment_button' ));
+        
+        add_filter('get_avatar', array($this,'wpgs_akiri_avataron'), 10, 5);        
 		
 	}
 	
@@ -229,7 +231,7 @@ final class Wp_Gnusocial {
                 $datumoj = array(
                     'comment_post_ID' => get_the_ID(),
                     'comment_author' => $komento->auhtoro,
-                    'comment_author_email' => $komento->auhtoro_url,
+                    'comment_author_email' => $komento->avataro,
                     'comment_author_url' => $komento->auhtoro_url,
                     'comment_content' => $komento->enhavo,
                     'comment_type' => '',
@@ -261,19 +263,46 @@ final class Wp_Gnusocial {
             return $fields;
     }
     
-    function wpgs_comment_form( $args ) {
-        $args['comment_field'] = '';
-        $args['comment_notes_after'] = '';
-        $args['logged_in_as'] = '';
-        return $args;
+    public function wpgs_comment_form( $args ) {
+        global $post;
+        
+        if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
+
+            $args['comment_field'] = '';
+            $args['comment_notes_after'] = '';
+            $args['logged_in_as'] = '';
+            return $args;        
+        }
     }
     
-    function wpgs_comment_button() {
+    public function wpgs_comment_button() {
         global $post;
-        $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
-        $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
-        $nodo_url = $nodo_url['host'];
-        echo '<p>Komentu tiun ĉi afiŝon ĉe <a href="http://' . $nodo_url . '/conversation/' . $konversacio_id . '">GNU social ene de tiu ĉi konversacio</a></p>';
-    }    
+        
+        if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
+        
+            $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
+            $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
+            $nodo_url = $nodo_url['host'];
+            $helpo_mesagho = "Forigu+tion+ĉi+kaj+skribu+vian+komenton";
+            $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&status_textarea='. $helpo_mesagho . '&inreplyto=' . $konversacio_id;
+            
+            echo '<h3><a href="' . $respondo_url . '">Alklaku ĉi tie por aldoni novan komenton</a></h3>';
+        }
+    }
+    
+    function wpgs_akiri_avataron(){
+        global $post;
+        global $comment;
+        
+        if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
+            if ($comment) {
+
+                //$avatar format includes the tag <img>
+                $imgpath = $comment->comment_author_email;
+                $my_avatar = '<img src="' . $imgpath . '" class="avatar avatar-48 photo" height="48" width="48">';
+                return $my_avatar;
+            }
+        }
+    }
     
 }
