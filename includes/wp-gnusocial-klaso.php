@@ -205,4 +205,5 @@ final class Wp_Gnusocial {
             return dirname(__FILE__) . '/komentoj.php';
         }
     }
+    
 }

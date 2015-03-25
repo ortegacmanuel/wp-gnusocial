@@ -88,9 +88,6 @@ final class Wp_Gnusocial_Admin {
 		
 		// Enqueue the script.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		
-
-		add_action( 'save_post', array( $this, 'save_post' ) );
 			
 	}
 	
