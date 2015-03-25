@@ -65,7 +65,7 @@ final class Wp_Gnusocial {
 	 * @return void
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', self::SLUG ), self::VERSION );
+		_doing_it_wrong( __FUNCTION__, __( 'Ne permesite', self::SLUG ), self::VERSION );
 	}
 
 	/**
@@ -76,7 +76,7 @@ final class Wp_Gnusocial {
 	 * @return void
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', self::SLUG ), self::VERSION );
+		_doing_it_wrong( __FUNCTION__, __( 'Ne permesite', self::SLUG ), self::VERSION );
 	}
 	
 	/**
@@ -156,19 +156,19 @@ final class Wp_Gnusocial {
 	public function load_textdomain() {
 		
 		$locale = get_locale();
-		$locale = apply_filters( 'plugin_locale',  $locale, 'wp-gnusocial' );
-		$mofile = sprintf( 'wp-gnusocial-%s.mo', $locale );
+		$locale = apply_filters( 'plugin_locale',  $locale, 'wp_gnusocial' );
+		$mofile = sprintf( 'wp_gnusocial-%s.mo', $locale );
 
 		$mofile_local  = plugin_dir_path( dirname( __FILE__ ) ) . 'languages/' . $mofile;
 		$mofile_global = WP_LANG_DIR . '/wp-gnusocial/' . $mofile;
 
 		if ( file_exists( $mofile_local ) )
-			return load_textdomain( 'wp-gnusocial', $mofile_local );
+			return load_textdomain( 'wp_gnusocial', $mofile_local );
 			
 		if ( file_exists( $mofile_global ) )
-			return load_textdomain( 'wp-gnusocial', $mofile_global );
+			return load_textdomain( 'wp_gnusocial', $mofile_global );
 		
-		load_plugin_textdomain( 'wp-gnusocial' );
+		load_plugin_textdomain( 'wp_gnusocial' );
 		
 		return false;
 	}
@@ -287,10 +287,10 @@ final class Wp_Gnusocial {
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_url = $nodo_url['host'];
-            $helpo_mesagho = "Forigu+tion+ĉi+kaj+skribu+vian+komenton";
+            $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
             $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&status_textarea='. $helpo_mesagho . '&inreplyto=' . $konversacio_id;
             
-            echo '<h3><a href="' . $respondo_url . '">Alklaku ĉi tie por aldoni novan komenton</a></h3>';
+            echo '<h3><a href="' . $respondo_url . '">' . __('Alklaku ĉi tie por aldoni novan komenton', 'wp_gnusocial') . '</a></h3>';
         }
     }
     

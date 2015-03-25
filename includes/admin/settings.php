@@ -14,7 +14,7 @@ function av_settings_page() { ?>
 
 		<?php screen_icon(); ?>
 
-		<h2><?php esc_html_e( 'WP-GNU social: Agordoj', 'wp-gnusocial' ) ?></h2>
+		<h2><?php esc_html_e( 'WP-GNU social: Agordoj', 'wp_gnusocial' ) ?></h2>
 
 		<form action="options.php" method="post">
 
@@ -42,7 +42,7 @@ function av_settings_page() { ?>
 function wpgs_agordoj_retrovoko_gheneralaj_agordoj() { ?>
 	
     <h3>
-    <?php esc_html_e( 'Konekto kun GNU social', 'wp-gnusocial' ); ?>
+    <?php esc_html_e( 'Konekto kun GNU social', 'wp_gnusocial' ); ?>
     </h3>
     
 <?php }
@@ -56,6 +56,13 @@ function wpgs_agordoj_retrovoko_gheneralaj_agordoj() { ?>
 function wpgs_agordoj_retrovoko_apiurl() { ?>
 	
 	<input name="_wpgs_apiurl" type="text" id="_wpgs_apiurl" value="<?php echo esc_attr( get_option( '_wpgs_apiurl') ); ?>" class="regular-text" />
+	<?php 
+	     _e( 'Ekzemple: http://lamatriz.org/api/statuses/update.xml', 'wp_gnusocial');
+        echo "<p>";
+        $teksto = __( 'Tiu ĉi datumo ŝanĝiĝos depende de la url de via nodo de GNU social. Se la url de via nodo estas http://mianodo.org tiam vi devas enmeti jenan API-urlon: http://mianodo.org/api/statuses/update.xml', 'wp_gnusocial');
+        printf($teksto);
+        echo "</p>";
+    ?>	
 	
 <?php }
 

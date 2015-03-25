@@ -51,7 +51,7 @@ final class Wp_Gnusocial_Admin {
 	 * @return void
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', Merlo::SLUG ), Merlo::VERSION );
+		_doing_it_wrong( __FUNCTION__, __( 'Ne permesite', Merlo::SLUG ), Merlo::VERSION );
 	}
 
 	/**
@@ -62,7 +62,7 @@ final class Wp_Gnusocial_Admin {
 	 * @return void
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', Merlo::SLUG ), Merlo::VERSION );
+		_doing_it_wrong( __FUNCTION__, __( 'Ne permesite', Merlo::SLUG ), Merlo::VERSION );
 	}
 	
 	/**
@@ -136,15 +136,15 @@ final class Wp_Gnusocial_Admin {
 		add_settings_section( 'wpgs_gheneralaj_agordoj', null, 'wpgs_agordoj_retrovoko_gheneralaj_agordoj', 'wp-gnusocial' );
 	 	
 	 	// API-url
-	 	add_settings_field( '_wpgs_apiurl', '<label for="_wpgs_apiurl">' . __( 'API-url de via nodo', 'wp-gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_apiurl', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
+	 	add_settings_field( '_wpgs_apiurl', '<label for="_wpgs_apiurl">' . __( 'API-url de via nodo', 'wp_gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_apiurl', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
 	 	register_setting  ( 'wp-gnusocial', '_wpgs_apiurl', 'esc_attr' );
 	 	
 	 	// Salutnomo
-	 	add_settings_field( '_wpgs_salutnomo', '<label for="_wpgs_salutnomo">' . __( 'Salutnomo', 'wp-gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_salutnomo', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
+	 	add_settings_field( '_wpgs_salutnomo', '<label for="_wpgs_salutnomo">' . __( 'Salutnomo', 'wp_gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_salutnomo', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
 	 	register_setting  ( 'wp-gnusocial', '_wpgs_salutnomo', 'esc_attr' );
 	 	
 	 	// Parvorto
-	 	add_settings_field( '_wpgs_pasvorto', '<label for="_wpgs_pasvorto">' . __( 'Pasvorto', 'wp-gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_pasvorto', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
+	 	add_settings_field( '_wpgs_pasvorto', '<label for="_wpgs_pasvorto">' . __( 'Pasvorto', 'wp_gnusocial' ) . '</label>', 'wpgs_agordoj_retrovoko_pasvorto', 'wp-gnusocial', 'wpgs_gheneralaj_agordoj' );
 	 	register_setting  ( 'wp-gnusocial', '_wpgs_pasvorto', 'esc_attr' );	 	
 		
 		do_action( 'av_register_settings' );

@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-25 21:39+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/wp-gnusocial-klaso.php:68 includes/wp-gnusocial-klaso.php:79
+#: includes/admin/wp-gnusocial-klaso-admin.php:54
+#: includes/admin/wp-gnusocial-klaso-admin.php:65
+msgid "Ne permesite"
+msgstr "Prohibido"
+
+#: includes/wp-gnusocial-klaso.php:290
+msgid "Forigu+tion+ĉi+kaj+skribu+vian+komenton"
+msgstr "Borra+esto+y+escribe+tu+comentario"
+
+#: includes/wp-gnusocial-klaso.php:293
+msgid "Alklaku ĉi tie por aldoni novan komenton"
+msgstr "Haz click aquí para añadir un comentario"
+
+#: includes/admin/wp-gnusocial-klaso-admin.php:104
+#: includes/admin/wp-gnusocial-klaso-admin.php:105
+msgid "WP-GNU social"
+msgstr "WP-GNU social"
+
+#: includes/admin/wp-gnusocial-klaso-admin.php:139
+msgid "API-url de via nodo"
+msgstr "URL del API de tu nodo"
+
+#: includes/admin/wp-gnusocial-klaso-admin.php:143
+msgid "Salutnomo"
+msgstr "Usuario"
+
+#: includes/admin/wp-gnusocial-klaso-admin.php:147
+msgid "Pasvorto"
+msgstr "Contraseña"
+
+#: includes/admin/settings.php:60
+msgid "Ekzemple: http://lamatriz.org/api/statuses/update.xml"
+msgstr "Ejemplo: http://lamatriz.org/api/statuses/update.xml"
+
+#: includes/admin/settings.php:62
+msgid ""
+"Tiu ĉi datumo ŝanĝiĝos depende de la url de via nodo de GNU social. Se la "
+"url de via nodo estas http://mianodo.org tiam vi devas enmeti jenan API-"
+"urlon: http://mianodo.org/api/statuses/update.xml"
+msgstr ""
+"Este dato va a variar dependiendo de la url de tu nodo GNU social. Si la "
+"url de tu nodo es http://mianodo.org entonces tienes que introducir esta url: "
+"http://mianodo.org/api/statuses/update.xml"
+
+#: includes/admin/settings.php:17
+msgid "WP-GNU social: Agordoj"
+msgstr "WP-GNU social: Configuración"
+
+#: includes/admin/settings.php:45
+msgid "Konekto kun GNU social"
+msgstr "Conexión con GNU social"
