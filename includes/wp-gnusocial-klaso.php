@@ -294,7 +294,7 @@ final class Wp_Gnusocial {
         }
     }
     
-    function wpgs_akiri_avataron(){
+    function wpgs_akiri_avataron($avatar){
         global $post;
         global $comment;
         
@@ -303,10 +303,11 @@ final class Wp_Gnusocial {
 
                 //$avatar format includes the tag <img>
                 $imgpath = $comment->comment_author_email;
-                $my_avatar = '<img src="' . $imgpath . '" class="avatar avatar-48 photo" height="48" width="48">';
-                return $my_avatar;
+                $avatar = '<img src="' . $imgpath . '" class="avatar avatar-48 photo" height="48" width="48">';
             }
         }
+        
+        return $avatar;
     }
     
 }

@@ -11,7 +11,7 @@
 
 /**
  * Plugin Name: WP-GNU social
- * Description: A simple way to integrate WordPress comments and GNU social conversations.
+ * Description: GNU social based comment system for WordPress.
  * Author:      Las Indias
  * Author URI:  http://lasindias.com
  * Version:     0.0.1
