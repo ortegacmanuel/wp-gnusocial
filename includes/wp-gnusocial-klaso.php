@@ -290,10 +290,9 @@ final class Wp_Gnusocial {
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_url = $nodo_url['host'];
-            $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
-            $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&status_textarea='. $helpo_mesagho . '&inreplyto=' . $konversacio_id;
+            $konversacio_url = 'http://' . $nodo_url . '/conversation/' . $konversacio_id;
             
-            echo '<h3><a href="' . $respondo_url . '">' . __('Alklaku ĉi tie por aldoni novan komenton', 'wp_gnusocial') . '</a></h3>';
+            echo '<h3><a href="' . $konversacio_url . '">' . __('Komentu tiun ĉi afiŝon en tiu ĉi konversacio ĉe GNU social', 'wp_gnusocial') . '</a></h3>';
         }
     }
     
