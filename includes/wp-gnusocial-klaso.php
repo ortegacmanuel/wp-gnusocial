@@ -275,6 +275,7 @@ final class Wp_Gnusocial {
         if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
 
             $args['comment_field'] = '';
+            $args['comment_notes_before'] = '';
             $args['comment_notes_after'] = '';
             $args['logged_in_as'] = '';        
         }
