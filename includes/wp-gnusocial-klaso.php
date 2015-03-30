@@ -291,8 +291,12 @@ final class Wp_Gnusocial {
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_url = $nodo_url['host'];
             $konversacio_url = 'http://' . $nodo_url . '/conversation/' . $konversacio_id;
+            $uzanto = get_option( '_wpgs_salutnomo');
+            $uzanto_url = 'http://' . $nodo_url . '/' . $uzanto;
             
-            echo '<h3><a href="' . $konversacio_url . '">' . __('Komentu tiun ĉi afiŝon en tiu ĉi konversacio ĉe GNU social', 'wp_gnusocial') . '</a></h3>';
+            echo '<h3 id="commentform" class="comment-form">' . __('Haz click aquí para enviar un comentario desde', 'wp_gnusocial') . '<a href="' . $konversacio_url . '"> ' . $nodo_url . '</a>.</h3>';
+            
+            echo '<p class="comment-form-comment">Si tienes un usuario en ' . $nodo_url . ' podrás comentar directamente. Si tienes un <strong>usuario en otro nodo GNU social</strong>, tienes que <a href="' . $uzanto_url . '">seguir al usuario ' . $uzanto . '</a> para que la conversación aparezca en tu nodo y poder comentar desde ahí.</p>';
         }
     }
     
