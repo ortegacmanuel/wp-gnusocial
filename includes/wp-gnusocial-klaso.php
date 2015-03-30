@@ -292,7 +292,7 @@ final class Wp_Gnusocial {
             $nodo_url = $nodo_url['host'];
             $konversacio_url = 'http://' . $nodo_url . '/conversation/' . $konversacio_id;
             
-            echo '<h3><a href="' . $konversacio_url . '">' . __('Komentu tiun ĉi afiŝon en tiu ĉi konversacio ĉe GNU social', 'wp_gnusocial') . '</a></h3>';
+            echo '<h3><a href="' . $konversacio_url . '">' . __('<h3>Komentu tiun ĉi afiŝon en tiu ĉi konversacio ĉe GNU social', 'wp_gnusocial') . '</a></h3>';
         }
     }
     
