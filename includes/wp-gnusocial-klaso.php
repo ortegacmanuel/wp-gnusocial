@@ -129,8 +129,11 @@ final class Wp_Gnusocial {
 		
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		
-		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo de WordPress A
+		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - malneto publikiĝas - de WordPress A
 		add_action( 'draft_to_publish', array( $this, 'gs_publikigo' ) );
+		
+		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - planita afiŝo publikiĝas - de WordPress A
+		add_action( 'future_to_publish', array( $this, 'gs_publikigo' ) );
 		
 		add_action('pre_get_comments', array( $this, 'load_comments_wpgs_template' ));
 		
