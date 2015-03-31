@@ -80,13 +80,13 @@ msgstr "Connection to GNU social"
 
 #: includes/wp-gnusocial-klaso.php:301
 msgid "Klaku ĉi tie por sendi komenton per"
-msgstr ""
+msgstr "Click here to comment from"
 
 #: includes/wp-gnusocial-klaso.php:303
 #, php-format
 msgid ""
-"Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas "
-"<strong>uzanton ĉe alia nodo de GNU social</strong>, vi devas sekvi <a href="
-"\"%s\">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu "
-"aldoni komentojn al ĝi."
+"If you have an user in %s you can comment following the link above.  If your "
+"<strong>user was created in other node</strong>, you should follow <a href="
+"\"%s\">the user %s</a> to clon the conversation in your own node and then "
+"add your comment from there."
 msgstr ""
