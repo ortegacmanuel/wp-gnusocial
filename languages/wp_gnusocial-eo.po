@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-25 21:39+0100\n"
+"POT-Creation-Date: 2015-03-31 11:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,14 @@ msgstr ""
 #: includes/wp-gnusocial-klaso.php:68 includes/wp-gnusocial-klaso.php:79
 #: includes/admin/wp-gnusocial-klaso-admin.php:54
 #: includes/admin/wp-gnusocial-klaso-admin.php:65
+#: includes/wp-gnusocial-klaso.php:68 includes/wp-gnusocial-klaso.php:79
+#: includes/admin/wp-gnusocial-klaso-admin.php:54
+#: includes/admin/wp-gnusocial-klaso-admin.php:65
 msgid "Ne permesite"
 msgstr ""
 
-#: includes/wp-gnusocial-klaso.php:290
+#: includes/wp-gnusocial-klaso.php:290 includes/wp-gnusocial-klaso.php:298
+#: includes/wp-gnusocial-klaso.php:298
 msgid "Forigu+tion+ĉi+kaj+skribu+vian+komenton"
 msgstr ""
 
@@ -33,26 +37,31 @@ msgstr ""
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:104
 #: includes/admin/wp-gnusocial-klaso-admin.php:105
+#: includes/admin/wp-gnusocial-klaso-admin.php:104
+#: includes/admin/wp-gnusocial-klaso-admin.php:105
 msgid "WP-GNU social"
 msgstr ""
 
+#: includes/admin/wp-gnusocial-klaso-admin.php:139
 #: includes/admin/wp-gnusocial-klaso-admin.php:139
 msgid "API-url de via nodo"
 msgstr ""
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:143
+#: includes/admin/wp-gnusocial-klaso-admin.php:143
 msgid "Salutnomo"
 msgstr ""
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:147
+#: includes/admin/wp-gnusocial-klaso-admin.php:147
 msgid "Pasvorto"
 msgstr ""
 
-#: includes/admin/settings.php:60
+#: includes/admin/settings.php:60 includes/admin/settings.php:60
 msgid "Ekzemple: http://lamatriz.org/api/statuses/update.xml"
 msgstr ""
 
-#: includes/admin/settings.php:62
+#: includes/admin/settings.php:62 includes/admin/settings.php:62
 msgid ""
 "Tiu ĉi datumo ŝanĝiĝos depende de la url de via nodo de GNU social. Se la "
 "url de via nodo estas http://mianodo.org tiam vi devas enmeti jenan API-"
@@ -65,4 +74,30 @@ msgstr ""
 
 #: includes/admin/settings.php:45
 msgid "Konekto kun GNU social"
+msgstr ""
+
+#: includes/wp-gnusocial-klaso.php:301
+msgid "Haz click aquí para enviar un comentario desde"
+msgstr ""
+
+#: includes/wp-gnusocial-klaso.php:303
+#, php-format
+msgid ""
+"Si tienes un usuario en %s podrás comentar directamente. Si tienes un "
+"<strong>usuario en otro nodo GNU social</strong>, tienes que <a href=\"%s"
+"\">seguir al usuario %s</a> para que la conversación aparezca en tu nodo y "
+"poder comentar desde ahí."
+msgstr ""
+
+#: includes/wp-gnusocial-klaso.php:301
+msgid "Klaku ĉi tie por sendi komenton per"
+msgstr ""
+
+#: includes/wp-gnusocial-klaso.php:303
+#, php-format
+msgid ""
+"Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas "
+"<strong>uzanton ĉe alia nodo de GNU social</strong>, vi devas sekvi <a href="
+"\"%s\">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu "
+"aldoni komentojn al ĝi."
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 11:11+0200\n"
+"POT-Creation-Date: 2015-03-31 11:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,16 +24,15 @@ msgstr ""
 #: includes/admin/wp-gnusocial-klaso-admin.php:54
 #: includes/admin/wp-gnusocial-klaso-admin.php:65
 msgid "Ne permesite"
-msgstr "Prohibido"
+msgstr "Forbbiden"
 
 #: includes/wp-gnusocial-klaso.php:290 includes/wp-gnusocial-klaso.php:298
-#: includes/wp-gnusocial-klaso.php:298
 msgid "Forigu+tion+ĉi+kaj+skribu+vian+komenton"
-msgstr "Borra+esto+y+escribe+tu+comentario"
+msgstr "Delete+this+and+write+your+comment"
 
 #: includes/wp-gnusocial-klaso.php:293
 msgid "Alklaku ĉi tie por aldoni novan komenton"
-msgstr "Haz click aquí para añadir un comentario"
+msgstr "Click here to add a comment"
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:104
 #: includes/admin/wp-gnusocial-klaso-admin.php:105
@@ -45,21 +44,21 @@ msgstr "WP-GNU social"
 #: includes/admin/wp-gnusocial-klaso-admin.php:139
 #: includes/admin/wp-gnusocial-klaso-admin.php:139
 msgid "API-url de via nodo"
-msgstr "URL del API de tu nodo"
+msgstr "URL of the API of your node"
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:143
 #: includes/admin/wp-gnusocial-klaso-admin.php:143
 msgid "Salutnomo"
-msgstr "Usuario"
+msgstr "User"
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:147
 #: includes/admin/wp-gnusocial-klaso-admin.php:147
 msgid "Pasvorto"
-msgstr "Contraseña"
+msgstr "Password"
 
 #: includes/admin/settings.php:60 includes/admin/settings.php:60
 msgid "Ekzemple: http://lamatriz.org/api/statuses/update.xml"
-msgstr "Ejemplo: http://lamatriz.org/api/statuses/update.xml"
+msgstr "Example: http://lamatriz.org/api/statuses/update.xml"
 
 #: includes/admin/settings.php:62 includes/admin/settings.php:62
 msgid ""
@@ -67,21 +66,21 @@ msgid ""
 "url de via nodo estas http://mianodo.org tiam vi devas enmeti jenan API-"
 "urlon: http://mianodo.org/api/statuses/update.xml"
 msgstr ""
-"Este dato va a variar dependiendo de la url de tu nodo GNU social. Si la url "
-"de tu nodo es http://mianodo.org entonces tienes que introducir esta url: "
-"http://mianodo.org/api/statuses/update.xml"
+"This field will depend on the url of your GNUsocial node.If your node is in "
+"http://mianodo.org then you have to write this url: http://mianodo.org/api/"
+"statuses/update.xml"
 
 #: includes/admin/settings.php:17
 msgid "WP-GNU social: Agordoj"
-msgstr "WP-GNU social: Configuración"
+msgstr "WP-GNU social: Configuration"
 
 #: includes/admin/settings.php:45
 msgid "Konekto kun GNU social"
-msgstr "Conexión con GNU social"
+msgstr "Connection to GNU social"
 
-#: includes/wp-gnusocial-klaso.php:301 includes/wp-gnusocial-klaso.php:301
+#: includes/wp-gnusocial-klaso.php:301
 msgid "Klaku ĉi tie por sendi komenton per"
-msgstr "Haz click aquí para enviar un comentario desde"
+msgstr ""
 
 #: includes/wp-gnusocial-klaso.php:303
 #, php-format
@@ -91,7 +90,3 @@ msgid ""
 "\"%s\">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu "
 "aldoni komentojn al ĝi."
 msgstr ""
-"Si tienes un usuario en %s podrás comentar directamente. Si tienes un "
-"<strong>usuario en otro nodo GNU social</strong>, tienes que seguir <a href="
-"\"%s\">al usuario %s</a> para que la conversación aparezca en tu nodo y poder "
-"comentar desde ahí."
