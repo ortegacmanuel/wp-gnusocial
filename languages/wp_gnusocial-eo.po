@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 11:04+0200\n"
+"POT-Creation-Date: 2015-04-09 11:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid ""
 "poder comentar desde ahí."
 msgstr ""
 
-#: includes/wp-gnusocial-klaso.php:301
+#: includes/wp-gnusocial-klaso.php:301 includes/wp-gnusocial-klaso.php:301
 msgid "Klaku ĉi tie por sendi komenton per"
 msgstr ""
 
@@ -100,4 +100,14 @@ msgid ""
 "<strong>uzanton ĉe alia nodo de GNU social</strong>, vi devas sekvi <a href="
 "\"%s\">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu "
 "aldoni komentojn al ĝi."
+msgstr ""
+
+#: includes/wp-gnusocial-klaso.php:303
+#, php-format
+msgid ""
+"Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas "
+"<strong>uzanton ĉe alia <a href=\"http://www.skilledtests.com/wiki/"
+"List_of_Independent_Statusnet_Instances\">nodo de GNU social</strong></a>, "
+"vi devas sekvi <a href=\"%s\">la uzanton %s</a> por ke la konversacio aperu "
+"en via nodo kaj vi povu aldoni komentojn al ĝi."
 msgstr ""

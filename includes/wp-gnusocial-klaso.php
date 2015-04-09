@@ -300,7 +300,7 @@ final class Wp_Gnusocial {
             
             echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
             
-            printf('<p class="comment-form-comment"> ' . __('Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas <strong>uzanton ĉe alia nodo de GNU social</strong>, vi devas sekvi <a href="%s">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu aldoni komentojn al ĝi.', 'wp_gnusocial') . '', $nodo_url, $uzanto_url, $uzanto);
+            printf('<p class="comment-form-comment"> ' . __('Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas <strong>uzanton ĉe alia <a href="http://www.skilledtests.com/wiki/List_of_Independent_Statusnet_Instances">nodo de GNU social</strong></a>, vi devas sekvi <a href="%s">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu aldoni komentojn al ĝi.', 'wp_gnusocial') . '', $nodo_url, $uzanto_url, $uzanto);
 
         }
     }
