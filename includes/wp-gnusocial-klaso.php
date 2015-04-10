@@ -129,6 +129,8 @@ final class Wp_Gnusocial {
 		
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		
+		add_action('wp_head', array( $this, 'komento_butono' ));
+		
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - malneto publikiĝas - de WordPress A
 		add_action( 'draft_to_publish', array( $this, 'gs_publikigo' ) );
 		
@@ -187,6 +189,21 @@ final class Wp_Gnusocial {
 		
 		wp_enqueue_style( 'wpgs-stiloj', plugin_dir_url( __FILE__ ) . 'assets/styles.css' );
 	}
+	
+    public function komento_butono() {
+        global $post;
+        ?>
+        <style>
+            .form-submit {
+                <?php
+                if (!(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
+                    echo "display: none;";
+                }
+                ?>
+            }           
+        </style>
+        <?php
+    }
 	
     public function gs_publikigo() {
     
