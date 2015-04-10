@@ -192,17 +192,13 @@ final class Wp_Gnusocial {
 	
     public function komento_butono() {
         global $post;
-        ?>
-        <style>
-            .form-submit {
-                <?php
-                if (!(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
-                    echo "display: none;";
-                }
-                ?>
-            }           
-        </style>
-        <?php
+        if (!(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
+            echo "<style>";
+                echo ".form-submit {";
+                echo "display: none;";
+                echo "}";
+            echo "</style>";
+        }
     }
 	
     public function gs_publikigo() {
