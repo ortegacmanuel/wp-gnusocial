@@ -58,9 +58,9 @@ class AtomLegilo{
         // Iteracia kontrolo de ĉiuj ricevitaj elementoj
         foreach($fluo->entry as $ero){
 
-            if($ero->author->name!=NULL && $ero->content!='' && $n< $this->elemento_nombro){
+            if($ero->author->children('poco', true)->displayName !=NULL && $ero->content!='' && $n< $this->elemento_nombro){
 
-                $elemento = new Elemento($afish_id, $ero->author->name, $ero->author->uri, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
+                $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
 
                 //$elemento->aranghi_kategoriojn($ero->category);
 
