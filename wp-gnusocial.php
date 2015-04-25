@@ -24,6 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die();
 }
 
+
 /*
  * Enable Debug Mode
  * Uncomment the following lines to see PHP errors
