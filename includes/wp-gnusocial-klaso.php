@@ -132,10 +132,10 @@ final class Wp_Gnusocial {
 		add_action('wp_head', array( $this, 'komento_butono' ));
 		
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - malneto publikiĝas - de WordPress A
-		add_action( 'draft_to_publish', array( $this, 'gs_publikigo' ) );
+		add_action( 'draft_to_publish', array( $this, 'gs_publikigo' ), 10, 1);
 		
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - planita afiŝo publikiĝas - de WordPress A
-		add_action( 'future_to_publish', array( $this, 'gs_publikigo' ) );
+		add_action( 'future_to_publish', array( $this, 'gs_publikigo' ), 10, 1 );
 		
 		add_action('pre_get_comments', array( $this, 'load_comments_wpgs_template' ));
 		
@@ -201,13 +201,11 @@ final class Wp_Gnusocial {
         }
     }
 	
-    public function gs_publikigo() {
-    
-        $post = get_post($ID);
+    public function gs_publikigo($post) {
         
         $title = $post->post_title;
         $priskribo = $post->post_excerpt;        
-        $permalink = get_permalink( $ID );
+        $permalink = $_SERVER['SERVER_NAME'] . '/' . $post->post_name;
         
         //$kategorioj = get_the_category($ID);
         
