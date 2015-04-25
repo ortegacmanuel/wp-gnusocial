@@ -229,38 +229,46 @@ final class Wp_Gnusocial {
         
         if( !(get_post_meta( get_the_ID(), 'wpgs_conversation_id', true ) == '') ) {
         
-            $konversacio_id = get_post_meta( get_the_ID(), 'wpgs_conversation_id', true );
-
-            $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
-            $nodo_url = $nodo_url['host'];
-
-            $atom_fluo_url = 'http://' . $nodo_url . '/api/statusnet/conversation/' .  $konversacio_id . '.atom';
-
-            $atom_legilo = new AtomLegilo($atom_fluo_url);
-            
-            $komentoj = $atom_legilo->legi(get_the_ID());
-            
-            foreach ($komentoj as $komento) {
+            if( (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '') OR
+                (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '0')) {
+        
+                update_post_meta( get_the_ID(), 'wpgs_updating', '1');
                 
-                $datumoj = array(
-                    'comment_post_ID' => get_the_ID(),
-                    'comment_author' => $komento->auhtoro,
-                    'comment_author_email' => $komento->avataro,
-                    'comment_author_url' => $komento->auhtoro_url,
-                    'comment_content' => $komento->enhavo,
-                    'comment_type' => '',
-                    'comment_parent' => 0,
-                    'comment_author_IP' => '',
-                    'comment_agent' => 'GNU social',
-                    'comment_date' => $komento->publikig_dato->format('Y-m-d H:i:s'),
-                    'comment_approved' => 1,
-                );
+                $konversacio_id = get_post_meta( get_the_ID(), 'wpgs_conversation_id', true );
 
-                wp_insert_comment($datumoj);
-            }
-            
-            $atom_legilo->ghisdatigi_daton(get_the_ID());          
-            
+                $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
+                $nodo_url = $nodo_url['host'];
+
+                $atom_fluo_url = 'http://' . $nodo_url . '/api/statusnet/conversation/' .  $konversacio_id . '.atom';
+
+                $atom_legilo = new AtomLegilo($atom_fluo_url);
+                
+                $komentoj = $atom_legilo->legi(get_the_ID());
+                
+                foreach ($komentoj as $komento) {
+                    
+                    $datumoj = array(
+                        'comment_post_ID' => get_the_ID(),
+                        'comment_author' => $komento->auhtoro,
+                        'comment_author_email' => $komento->avataro,
+                        'comment_author_url' => $komento->auhtoro_url,
+                        'comment_content' => $komento->enhavo,
+                        'comment_type' => '',
+                        'comment_parent' => 0,
+                        'comment_author_IP' => '',
+                        'comment_agent' => 'GNU social',
+                        'comment_date' => $komento->publikig_dato->format('Y-m-d H:i:s'),
+                        'comment_approved' => 1,
+                    );
+
+                    wp_insert_comment($datumoj);
+                }
+                
+                $atom_legilo->ghisdatigi_daton(get_the_ID());
+                
+                update_post_meta( get_the_ID(), 'wpgs_updating', '0');
+                
+            }            
         }
     }
     
