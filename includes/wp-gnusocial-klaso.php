@@ -205,7 +205,7 @@ final class Wp_Gnusocial {
         
         $title = $post->post_title;
         $priskribo = $post->post_excerpt;        
-        $permalink = $_SERVER['SERVER_NAME'] . '/' . $post->post_name;
+        $permalink = get_bloginfo('url') . '/' . $post->post_name;
         
         //$kategorioj = get_the_category($ID);
         
