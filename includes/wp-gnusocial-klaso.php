@@ -394,7 +394,7 @@ final class Wp_Gnusocial {
     $response = wp_remote_get($url);
     if(wp_remote_retrieve_response_code($response) == 200){
       $body      = json_decode(wp_remote_retrieve_body($response));
-      $img_path  = $body[0]->user->profile_image_url_original;
+      $img_path  = $body[0]->user->profile_image_url;
 
     }else{
       $img_path = self::wpgs_get_default_avatar();
