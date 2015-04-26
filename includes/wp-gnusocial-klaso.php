@@ -246,7 +246,7 @@ final class Wp_Gnusocial {
      */
     public function wpgs_get_comment_user_at_node($komento) {
       $comment_host   =  parse_url($komento->auhtoro_url, PHP_URL_HOST);
-      $comment_author =  $komento->auhtoro;
+      $comment_author =  $komento->auhtoro_salutnomo;
       return $comment_author . '@' . $comment_host;
     }
 
