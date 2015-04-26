@@ -393,10 +393,11 @@ final class Wp_Gnusocial {
      * Check if we got it in cache and if not, let's fecth the user's avatar from
      * the correct gnu social node
      */
-    function wpgs_get_avatar_url($node_host, $user_nick) {
-      /**
-       * First try to get the avatar url from cache
-       */
+  function wpgs_get_avatar_url($node_host, $user_nick, $user_id = null) {
+    /**
+     * First try to get the avatar url from cache
+     */
+    if($user_nick){
       if(!wp_cache_get( $user_nick, 'wpgs_avatars' )){
         $url = 'http://' . $node_host .
              '/api/statuses/user_timeline.json?screen_name=' . $user_nick;
@@ -414,11 +415,31 @@ final class Wp_Gnusocial {
       }else{
         $img_path = wp_cache_get( $user_nick, 'wpgs_avatars' );
       }
+    }else{
+      if(!wp_cache_get( $user_id, 'wpgs_avatars' )){
+        $url = 'http://' . $node_host .
+             '/api/statuses/user_timeline.json?user_id=' . $user_id;
 
-      $img_tag = self::wpgs_format_avatar_tag($img_path);
+        $response = wp_remote_get($url);
+        if(wp_remote_retrieve_response_code($response) == 200){
+          $body      = json_decode(wp_remote_retrieve_body($response));
+          $img_path  = $body[0]->user->profile_image_url_original;
 
-      return $img_tag;
+        }else{
+          $img_path = self::wpgs_get_default_avatar();
+        }
+        // Add the avatar url to Wordpress cache
+        wp_cache_add( $user_id, $img_path, 'wpgs_avatars');
+      }else{
+        $img_path = wp_cache_get( $user_id, 'wpgs_avatars' );
+      }
+
     }
+
+    $img_tag = self::wpgs_format_avatar_tag($img_path);
+
+    return $img_tag;
+  }
 
     /**
      * Explode our user data to get request parameters
@@ -442,8 +463,9 @@ final class Wp_Gnusocial {
 
     function wpgs_get_img_url_users_avatar($comment) {
       $node_host = parse_url($comment->comment_author_url, PHP_URL_HOST);
-      $user_nick = $comment->comment_author;
-      return self::wpgs_get_avatar_url($node_host, $user_nick);
+      $user_url_data = explode('/', $comment->comment_author_url);
+      $user_id = array_pop($user_url_data);
+      return self::wpgs_get_avatar_url($node_host, $user_nick = null, $user_id );
     }
 
     /**
