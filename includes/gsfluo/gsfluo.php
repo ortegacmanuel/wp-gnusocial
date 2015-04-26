@@ -60,7 +60,7 @@ class AtomLegilo{
 
             if($ero->author->children('poco', true)->displayName !=NULL && $ero->content!='' && $n< $this->elemento_nombro){
 
-                $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
+                $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->name, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
 
                 //$elemento->aranghi_kategoriojn($ero->category);
 
@@ -99,17 +99,19 @@ class Elemento {
     public $afisho_id;
     public $auhtoro;
     public $auhtoro_url;
+    public $auhtoro_salutnomo;
     public $enhavo;
     public $tipo;
     public $patro;
     public $publikig_dato;
     public $avataro;
 
-    function __construct($afisho_id, $auhtoro, $auhtoro_url, $avataro, $enhavo, $dato) {
+    function __construct($afisho_id, $auhtoro, $auhtoro_url, $auhtoro_salutnomo, $avataro, $enhavo, $dato) {
         
         $this->afisho_id = $afisho_id;
         $this->auhtoro = $auhtoro;
         $this->auhtoro_url = $auhtoro_url;
+        $this->auhtoro_salutnomo = $auhtoro_salutnomo;
         $this->enhavo = $enhavo;
         $this->publikig_dato = $dato;
         $this->avataro = $avataro;
