@@ -184,20 +184,7 @@ class GsKonektilo {
            echo "Something went wrong: $error_message";
         } else {
            return $response;
-        }    
-
-        /*
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->api_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_USERPWD, $this->salutnomo.":".$this->pasvorto);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array("status" => $titolo . " " . $url  . " " . $priskribo . " ". $kategorioj));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
-        $output = curl_exec($ch);
-        curl_close($ch);
+        }
         
-        return $output;
-        */
     }
 }
