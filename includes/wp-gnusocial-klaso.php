@@ -232,10 +232,10 @@ final class Wp_Gnusocial {
         $gs_konektilo = new GsKonektilo(get_option( '_wpgs_apiurl'), get_option( '_wpgs_salutnomo'), get_option( '_wpgs_pasvorto'));
 
         $respondo = $gs_konektilo->afishi($title, $permalink, $priskribo, $kategoricheno);
+        
+        $status = new SimpleXMLElement(wp_remote_retrieve_body($respondo));
 
-        $status = new SimpleXMLElement($respondo);
-
-        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->id), true);
+        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->id), true);        
 
     }
 

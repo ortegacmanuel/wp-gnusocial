@@ -160,7 +160,33 @@ class GsKonektilo {
     }
 
     function afishi($titolo, $url, $priskribo, $kategorioj ) {
+    
+        $headers = array( 'Authorization' => 'Basic '.base64_encode("$this->salutnomo:$this->pasvorto") );
+        
+        $message = $titolo . " " . $url  . " " . $priskribo . " ". $kategorioj;
+        
+        $body = array( 'status' => $message );
+        
+        $response = wp_remote_post( $this->api_url, array(
+	        'method' => 'POST',
+	        'timeout' => 45,
+	        'redirection' => 5,
+	        'httpversion' => '1.0',
+	        'blocking' => true,
+	        'headers' => $headers,
+	        'body' => $body,
+	        'cookies' => array()
+            )
+        );
+        
+        if ( is_wp_error( $response ) ) {
+           $error_message = $response->get_error_message();
+           echo "Something went wrong: $error_message";
+        } else {
+           return $response;
+        }    
 
+        /*
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->api_url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -172,5 +198,6 @@ class GsKonektilo {
         curl_close($ch);
         
         return $output;
+        */
     }
 }
