@@ -46,14 +46,13 @@ final class Wp_Gnusocial {
 	 *
 	 */
 	const URL_AVATAR_TYPE   = 'url';
-  const USER_AVATAR_TYPE  = 'user';
-  const EMPTY_AVATAR_TYPE = 'empty';
+    const USER_AVATAR_TYPE  = 'user';
+    const EMPTY_AVATAR_TYPE = 'empty';
 
-  /**
-   * The avatar size we use
-   */
-
-  const AVATAR_SIZE = 48;
+    /**
+     * The avatar size we use
+     */
+    const AVATAR_SIZE = 48;
 
 	/**
 	 * Get the only instance of this class.
@@ -123,9 +122,8 @@ final class Wp_Gnusocial {
 	private function require_files() {
 
 		/**
-		 * The helper functions.
+		 * PHP library for publishing to a GNU social node.
 		 */
-		require( plugin_dir_path( __FILE__ ) . 'functions.php' );
 		require( plugin_dir_path( __FILE__ ) . 'gsfluo/gsfluo.php' );
 	}
 
