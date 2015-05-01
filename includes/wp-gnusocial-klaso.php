@@ -158,9 +158,15 @@ final class Wp_Gnusocial {
         add_action('comment_form', array( $this, 'wpgs_comment_button' ));
 
         add_filter('get_avatar', array($this,'wpgs_akiri_avataron'), 10, 5);
+        
+        if (empty(get_option( '_wpgs_apiurl')) ||
+            empty(get_option( '_wpgs_salutnomo')) || empty(get_option( '_wpgs_pasvorto'))) {
+            
+            add_action('admin_notices', array($this, 'atentigi_pri_agordomanko'));
+        }
 
 	}
-
+	
 	/**
 	 * Load the text domain.
 	 *
@@ -210,6 +216,17 @@ final class Wp_Gnusocial {
                 echo "display: none;";
                 echo "}";
             echo "</style>";
+        }
+    }
+    
+    public function atentigi_pri_agordomanko() {
+        $screen = get_current_screen();
+        if ($screen->base === 'plugins') {
+        ?>
+            <div class="updated">
+                <p><a href="<?php print admin_url('options-general.php?page=wp-gnusocial');?>" class="button"><?php esc_html_e('Konekto kun GNU social', 'wp_gnusocial');?></a> &mdash; <?php esc_html_e('Preskaŭ farite! Agordu vian kromprogramon por publikigi vian unuan afiŝon kun komentosistemo povigita de GNU social.', 'wp_gnusocial');?></p>
+            </div>
+            <?php
         }
     }
 

@@ -23,6 +23,10 @@ This plugin will work only for new posts. So, in order to see this plugin workin
 
 == Changelog ==
 
+= 0.3 =
+* Añadida notificación trás la activación del plugin para informar y enlazar a su configuración
+* Optimizar la configuración del plugin. Pedir solamente el identificador de GNU social y la contraseña
+
 = 0.2 =
 * Los comentarios muestran el nombre elegido por el usuario y no el nickname
 * Url en el primer comentario usando post_name
