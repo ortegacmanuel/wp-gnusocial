@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 11:16+0200\n"
+"POT-Creation-Date: 2015-05-01 10:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,14 +20,15 @@ msgstr ""
 #: includes/wp-gnusocial-klaso.php:68 includes/wp-gnusocial-klaso.php:79
 #: includes/admin/wp-gnusocial-klaso-admin.php:54
 #: includes/admin/wp-gnusocial-klaso-admin.php:65
-#: includes/wp-gnusocial-klaso.php:68 includes/wp-gnusocial-klaso.php:79
+#: includes/wp-gnusocial-klaso.php:81 includes/wp-gnusocial-klaso.php:92
+#: includes/wp-gnusocial-klaso.php:81 includes/wp-gnusocial-klaso.php:92
 #: includes/admin/wp-gnusocial-klaso-admin.php:54
 #: includes/admin/wp-gnusocial-klaso-admin.php:65
 msgid "Ne permesite"
 msgstr "Prohibido"
 
 #: includes/wp-gnusocial-klaso.php:290 includes/wp-gnusocial-klaso.php:298
-#: includes/wp-gnusocial-klaso.php:298
+#: includes/wp-gnusocial-klaso.php:357 includes/wp-gnusocial-klaso.php:357
 msgid "Forigu+tion+ĉi+kaj+skribu+vian+komenton"
 msgstr "Borra+esto+y+escribe+tu+comentario"
 
@@ -75,15 +76,18 @@ msgstr ""
 msgid "WP-GNU social: Agordoj"
 msgstr "WP-GNU social: Configuración"
 
-#: includes/admin/settings.php:45
+#: includes/admin/settings.php:45 includes/wp-gnusocial-klaso.php:227
+#: includes/wp-gnusocial-klaso.php:227
 msgid "Konekto kun GNU social"
 msgstr "Conexión con GNU social"
 
-#: includes/wp-gnusocial-klaso.php:301 includes/wp-gnusocial-klaso.php:301
+#: includes/wp-gnusocial-klaso.php:301 includes/wp-gnusocial-klaso.php:360
+#: includes/wp-gnusocial-klaso.php:360
 msgid "Klaku ĉi tie por sendi komenton per"
 msgstr "Haz click aquí para enviar un comentario desde"
 
-#: includes/wp-gnusocial-klaso.php:303
+#: includes/wp-gnusocial-klaso.php:303 includes/wp-gnusocial-klaso.php:362
+#: includes/wp-gnusocial-klaso.php:362
 #, php-format
 msgid ""
 "Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas "
@@ -94,6 +98,13 @@ msgid ""
 msgstr ""
 "Si tienes un usuario en %s podrás comentar directamente. Si tienes un "
 "<strong>usuario en otro <a href=\"http://www.skilledtests.com/wiki/"
-"List_of_Independent_Statusnet_Instances\">nodo de GNU social</strong></a>, tienes que seguir <a href="
-"\"%s\">al usuario %s</a> para que la conversación aparezca en tu nodo y "
-"poder comentar desde ahí."
+"List_of_Independent_Statusnet_Instances\">nodo de GNU social</strong></a>, "
+"tienes que seguir <a href=\"%s\">al usuario %s</a> para que la conversación "
+"aparezca en tu nodo y poder comentar desde ahí."
+
+#: includes/wp-gnusocial-klaso.php:227
+msgid ""
+"Preskaŭ farite! Konektu vian blogon kun GNU social kaj publikigu novan "
+"afiŝon por ekuzi la novan komentosistemon."
+msgstr "Casi listo! Conecta tu blog con GNU social y publica un nuevo "
+"post para comenzar a utilizar el nuevo sistema de comentarios."

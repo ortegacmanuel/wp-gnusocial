@@ -224,7 +224,7 @@ final class Wp_Gnusocial {
         if ($screen->base === 'plugins') {
         ?>
             <div class="updated">
-                <p><a href="<?php print admin_url('options-general.php?page=wp-gnusocial');?>" class="button"><?php esc_html_e('Konekto kun GNU social', 'wp_gnusocial');?></a> &mdash; <?php esc_html_e('Preskaŭ farite! Agordu vian kromprogramon por publikigi vian unuan afiŝon kun komentosistemo povigita de GNU social.', 'wp_gnusocial');?></p>
+                <p><a href="<?php print admin_url('options-general.php?page=wp-gnusocial');?>" class="button"><?php _e('Konekto kun GNU social', 'wp_gnusocial');?></a> &mdash; <?php _e('Preskaŭ farite! Konektu vian blogon kun GNU social kaj publikigu novan afiŝon por ekuzi la novan komentosistemon.', 'wp_gnusocial');?></p>
             </div>
             <?php
         }

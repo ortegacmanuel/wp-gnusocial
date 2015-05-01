@@ -24,7 +24,6 @@ This plugin will work only for new posts. So, in order to see this plugin workin
 == Changelog ==
 
 = 0.3 =
-* Añadida notificación trás la activación del plugin para informar y enlazar a su configuración
 * Optimizar la configuración del plugin. Pedir solamente el identificador de GNU social y la contraseña
 
 = 0.2 =
@@ -33,6 +32,7 @@ This plugin will work only for new posts. So, in order to see this plugin workin
 * Control a la hora de actulizar el listado de comentarios asociados a un post para evitar comentarios repetidos
 * Reimplementación de la gestión de avatares
 * Uso de WordPress HTTP class para no depender de curl
+* Añadida notificación trás la activación del plugin para informar y enlazar a su configuración
 
 = 0.1 =
 * Just getting started...
