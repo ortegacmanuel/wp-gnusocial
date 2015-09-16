@@ -159,8 +159,11 @@ final class Wp_Gnusocial {
 
         add_filter('get_avatar', array($this,'wpgs_akiri_avataron'), 10, 5);
         
-        if (empty(get_option( '_wpgs_apiurl')) ||
-            empty(get_option( '_wpgs_salutnomo')) || empty(get_option( '_wpgs_pasvorto'))) {
+        $apiurl = get_option( '_wpgs_apiurl');
+        $salutnomo = get_option( '_wpgs_salutnomo');
+        $pasvorto = get_option( '_wpgs_pasvorto');
+        
+        if (empty($apiurl) || empty($salutnomo) || empty($pasvorto)) {
             
             add_action('admin_notices', array($this, 'atentigi_pri_agordomanko'));
         }
@@ -206,6 +209,8 @@ final class Wp_Gnusocial {
 	public function enqueue_styles() {
 
 		wp_enqueue_style( 'wpgs-stiloj', plugin_dir_url( __FILE__ ) . 'assets/styles.css' );
+		wp_enqueue_style( 'wpgs-hovercard-styles', plugin_dir_url( __FILE__ ) . 'assets/hovercard.css' );
+		wp_enqueue_script( 'wpgs-hovercard-js', plugin_dir_url( __FILE__ ) . 'assets/hovercard.js', false, '1.0', true );
 	}
 
     public function komento_butono() {
@@ -360,6 +365,12 @@ final class Wp_Gnusocial {
             echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
 
             printf('<p class="comment-form-comment"> ' . __('Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas <strong>uzanton ĉe alia <a href="http://www.skilledtests.com/wiki/List_of_Independent_Statusnet_Instances">nodo de GNU social</strong></a>, vi devas sekvi <a href="%s">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu aldoni komentojn al ĝi.', 'wp_gnusocial') . '', $nodo_url, $uzanto_url, $uzanto);
+
+            echo '<script>';
+                echo 'jQuery(document).ready(function($) {';
+                    echo "$('#comments').gsHovercard();";
+                echo '});';
+            echo '</script>';
 
       }
     }

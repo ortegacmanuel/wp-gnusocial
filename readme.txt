@@ -1,30 +1,66 @@
 === WP-GNU social ===
-Contributors: elektrolupo
-Tags: GNU social, federated web, conversations, social web, statusnet
+Contributors: nat23, deugarte, Rodma, mayra-rodriguez, carolitar, voylinux, elektrolupo
+Tags: GNU social, federated web, conversations, social web, statusnet, comments, commenting
 Requires at least: 3.2
 Tested up to: 4.2.1
 Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An GNU social based comment system for WordPress
+GNU social based comment system for WordPress
 
 == Description ==
 
-An [GNU social](https://gnu.io/social/) based comment system. After installing and configurating the plugin, evey new post will start a new conversation in your GNU social node. The conversation will be displayed and locally saved as usual wordpress comments in your blog. Everybody with an user in a node with someone subscribed to your GNU social user (i.e. your node) can comment your post directly from its own GNU social node.
-
-This plugin will work only for new posts. So, in order to see this plugin working, after activating and configuring it, you have to publish a new post.
+[GNU social](https://gnu.io/social/) based comment system. After installing and configurating the plugin, evey new post will start a new conversation in your GNU social node. The conversation will be displayed and locally saved as usual wordpress comments in your blog. Everybody with an user in a node with someone subscribed to your GNU social user (i.e. your node) can comment your post directly from its own GNU social node.
 
 == Installation ==
 
-1. Upload the 'wp-gnusocial' folder to the '/wp-content/plugins/' directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Visit 'Settings > WP-GNU social' and adjust your configuration.
+You can either use the built in WordPress installer or install the plugin manually.
+
+For an automated installation:
+1. Go to 'Plugins -> Add New' on your WordPress Admin page.
+2. Search for the 'WP-GNU social' plugin.
+3. Install by clicking the 'Install Now' button.
+4. Activate the plugin on the 'Plugins' page in your WordPress Admin.
+
+For a manual installation:
+1. Upload 'wp-gnusocial' folder to the '/wp-content/plugins/' directory of your WordPress installation.
+2. Activate the plugin on the 'Plugins' page in your WordPress Admin.
+
+= Getting started =
+
+1. After installing and activating the plugin, be sure to visit the plugin's settings page at 'Settings -> WP-GNU social' on your WordPress Admin page.
+2. Simply add the API url of your GNU social node, your username and password.
+3. Publish a new post to get started.
+
+= What's GNU social? =
+GNU social is a free social distributed networking platform. It helps people in a community, company or group to exchange short status updates, do polls, announce events, or other social activities. More about it on https://gnu.io/social/
+
+= This plugin speaks your language =
+* Esperanto
+* Spanish
+* English
+* German -- contributed by [Frosch](http://blog.atari-frosch.de/)
+
+Your language isn't listed? Then feel free to and help make this plugin more accessible!
+
+= Credits =
+* Plugin's logo: [Moshpirit](https://quitter.es/moshpirit)
+* [GNU social Querycards](https://github.com/chimo/gs-querycards): [@chimo](http://sn.chromic.org/chimo)
+
+== Screenshots ==
+
+1. Configuration page
+2. Comments in GNU social
+3. Comments in your blog
 
 == Changelog ==
 
 = 0.3 =
-* Optimizar la configuración del plugin. Pedir solamente el identificador de GNU social y la contraseña
+* Optimizar la configuración del plugin. Pedir solamente el identificador de GNU social y la contraseña.
+* Añadir a la configuración de la url dos parámetros GET. El utm_medium y el utm_campaign. Por @voylinux@lamatriz.org Ver detalles en http://lamatriz.org/notice/124839
+* Revisar y corregir la duplicación de comentarios en WordPress
+* Implementar GNU social Querycards en la visualización de los comentarios en WordPress partiendo del trabajo de @chimo@sn.chromic.org Ver en: https://github.com/chimo/gs-querycards
 
 = 0.2 =
 * Los comentarios muestran el nombre elegido por el usuario y no el nickname
