@@ -253,6 +253,8 @@ final class Wp_Gnusocial {
         //    $kategoricheno .= '#' . $kategorio->cat_name . ' ';
         //}
 
+        $post_type = get_post_type($post);
+
         apply_filters("oembed_provider_data", array(), $post_type, $post);
         apply_filters("oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
 
