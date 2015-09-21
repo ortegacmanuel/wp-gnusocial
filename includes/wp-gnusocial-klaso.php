@@ -255,8 +255,8 @@ final class Wp_Gnusocial {
 
         $post_type = get_post_type($post);
 
-        $oembed_provider_data = apply_filters("oembed_provider_data", array(), $post_type, $post);
-        $oembed_provider_data = apply_filters("oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
+        $oembed_provider_data = apply_filters("wpgs_oembed_provider_data", array(), $post_type, $post);
+        $oembed_provider_data = apply_filters("wpgs_oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
 
         $kategoricheno = '';
 

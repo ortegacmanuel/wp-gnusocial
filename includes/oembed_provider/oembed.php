@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', array('OembedProviderPlugin', 'init'));
+add_action('init', array('wpgs_OembedProviderPlugin', 'init'));
 
 /**
  * oEmbed Provider for WordPress
@@ -8,26 +8,26 @@ add_action('init', array('OembedProviderPlugin', 'init'));
  * @author Matthias Pfefferle
  * @author Craig Andrews
  */
-class OembedProviderPlugin {
+class wpgs_OembedProviderPlugin {
   /**
    * initialize plugin
    */
   public static function init() {
-    add_action('wp_head', array('OembedProviderPlugin', 'add_oembed_links'));
-    add_action('parse_query', array('OembedProviderPlugin', 'parse_query'));
-    add_filter('query_vars', array('OembedProviderPlugin', 'query_vars'));
-    add_filter('oembed_provider_data', array('OembedProviderPlugin', 'generate_default_content'), 90, 3);
-    add_filter('oembed_provider_data_attachment', array('OembedProviderPlugin', 'generate_attachment_content'), 91, 2);
-    add_filter('oembed_provider_data_post', array('OembedProviderPlugin', 'generate_post_content'), 91, 2);
-    add_filter('oembed_provider_data_page', array('OembedProviderPlugin', 'generate_post_content'), 91, 2);
-    add_action('oembed_provider_render_json', array('OembedProviderPlugin', 'render_json'), 99, 2);
-    add_action('oembed_provider_render_xml', array('OembedProviderPlugin', 'render_xml'), 99);
+    add_action('wp_head', array('wpgs_OembedProviderPlugin', 'wpgs_add_oembed_links'));
+    add_action('parse_query', array('wpgs_OembedProviderPlugin', 'wpgs_parse_query'));
+    add_filter('query_vars', array('wpgs_OembedProviderPlugin', 'wpgs_query_vars'));
+    add_filter('wpgs_oembed_provider_data', array('wpgs_OembedProviderPlugin', 'wpgs_generate_default_content'), 90, 3);
+    add_filter('wpgs_oembed_provider_data_attachment', array('wpgs_OembedProviderPlugin', 'wpgs_generate_attachment_content'), 91, 2);
+    add_filter('wpgs_oembed_provider_data_post', array('wpgs_OembedProviderPlugin', 'wpgs_generate_post_content'), 91, 2);
+    add_filter('wpgs_oembed_provider_data_page', array('wpgs_OembedProviderPlugin', 'wpgs_generate_post_content'), 91, 2);
+    add_action('wpgs_oembed_provider_render_json', array('wpgs_OembedProviderPlugin', 'wpgs_render_json'), 99, 2);
+    add_action('wpgs_oembed_provider_render_xml', array('wpgs_OembedProviderPlugin', 'wpgs_render_xml'), 99);
   }
 
   /**
    * auto discovery links
    */
-  public static function add_oembed_links() {
+  public static function wpgs_add_oembed_links() {
     if (is_singular()) {
       echo '<link rel="alternate" type="application/json+oembed" href="' . site_url('/?oembed=true&amp;format=json&amp;url=' . get_permalink()) . '" title="oEmbed Profile" />'."\n";
       echo '<link rel="alternate" type="text/xml+oembed" href="' . site_url('/?oembed=true&amp;format=xml&amp;url=' . get_permalink()) . '" title="oEmbed Profile" />'."\n";
@@ -37,7 +37,7 @@ class OembedProviderPlugin {
   /**
    * adds query vars
    */
-  public static function query_vars($query_vars) {
+  public static function wpgs_query_vars($query_vars) {
     $query_vars[] = 'oembed';
     $query_vars[] = 'format';
     $query_vars[] = 'url';
@@ -51,7 +51,7 @@ class OembedProviderPlugin {
   /**
    * handles request
    */
-  public static function parse_query($wp) {
+  public static function wpgs_parse_query($wp) {
     if (!array_key_exists('oembed', $wp->query_vars) ||
         !array_key_exists('url', $wp->query_vars)) {
       return;
@@ -68,7 +68,7 @@ class OembedProviderPlugin {
     $post_type = get_post_type($post);
 
     // add support for alternate output formats
-    $oembed_provider_formats = apply_filters("oembed_provider_formats", array('json', 'xml'));
+    $oembed_provider_formats = apply_filters("wpgs_oembed_provider_formats", array('json', 'xml'));
 
     // check output format
     $format = "json";
@@ -77,11 +77,11 @@ class OembedProviderPlugin {
     }
 
     // content filter
-    $oembed_provider_data = apply_filters("oembed_provider_data", array(), $post_type, $post);
-    $oembed_provider_data = apply_filters("oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
+    $oembed_provider_data = apply_filters("wpgs_oembed_provider_data", array(), $post_type, $post);
+    $oembed_provider_data = apply_filters("wpgs_oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
 
-    do_action("oembed_provider_render", $format, $oembed_provider_data, $wp->query_vars);
-    do_action("oembed_provider_render_{$format}", $oembed_provider_data, $wp->query_vars);
+    do_action("wpgs_oembed_provider_render", $format, $oembed_provider_data, $wp->query_vars);
+    do_action("wpgs_oembed_provider_render_{$format}", $oembed_provider_data, $wp->query_vars);
   }
 
   /**
@@ -91,7 +91,7 @@ class OembedProviderPlugin {
    * @param string $post_type
    * @param Object $post
    */
-  public static function generate_default_content($oembed_provider_data, $post_type, $post) {
+  public static function wpgs_generate_default_content($oembed_provider_data, $post_type, $post) {
     $author = get_userdata($post->post_author);
 
 
@@ -120,7 +120,7 @@ class OembedProviderPlugin {
   * @param array $oembed_provider_data
   * @param Object $post
   */
-  public static function generate_post_content($oembed_provider_data, $post) {
+  public static function wpgs_generate_post_content($oembed_provider_data, $post) {
     if (function_exists('has_post_thumbnail') && has_post_thumbnail($post->ID)) {
       $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),large);
       $oembed_provider_data['thumbnail_url'] = $image[0];
@@ -139,7 +139,7 @@ class OembedProviderPlugin {
    * @param array $oembed_provider_data
    * @param Object $post
    */
-  public static function generate_attachment_content($oembed_provider_data, $post) {
+  public static function wpgs_generate_attachment_content($oembed_provider_data, $post) {
     if (wp_attachment_is_image($post->ID)) {
       $oembed_provider_data['type'] = 'photo';
     } else {
@@ -166,7 +166,7 @@ class OembedProviderPlugin {
    *
    * @param array $oembed_provider_data
    */
-  public static function render_json($oembed_provider_data, $wp_query) {
+  public static function wpgs_render_json($oembed_provider_data, $wp_query) {
     header('Content-Type: application/json; charset=' . get_bloginfo('charset'), true);
 
     // render json output
@@ -186,7 +186,7 @@ class OembedProviderPlugin {
    *
    * @param array $oembed_provider_data
    */
-  public static function render_xml($oembed_provider_data) {
+  public static function wpgs_render_xml($oembed_provider_data) {
     header('Content-Type: text/xml; charset=' . get_bloginfo('charset'), true);
 
     // render xml-output
