@@ -125,6 +125,12 @@ final class Wp_Gnusocial {
 		 * PHP library for publishing to a GNU social node.
 		 */
 		require( plugin_dir_path( __FILE__ ) . 'gsfluo/gsfluo.php' );
+
+		/**
+		 * An oEmbed provider for Wordpress
+		 */
+		require( plugin_dir_path( __FILE__ ) . 'oembed_provider/oembed.php' );
+
 	}
 
 	/**
@@ -246,6 +252,9 @@ final class Wp_Gnusocial {
         //foreach($kategorioj as $kategorio) {
         //    $kategoricheno .= '#' . $kategorio->cat_name . ' ';
         //}
+
+        apply_filters("oembed_provider_data", array(), $post_type, $post);
+        apply_filters("oembed_provider_data_{$post_type}", $oembed_provider_data, $post);
 
         $kategoricheno = '';
 
