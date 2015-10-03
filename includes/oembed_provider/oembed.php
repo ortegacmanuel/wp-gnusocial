@@ -18,8 +18,6 @@ class wpgs_OembedProviderPlugin {
     add_filter('query_vars', array('wpgs_OembedProviderPlugin', 'wpgs_query_vars'));
     add_filter('wpgs_oembed_provider_data', array('wpgs_OembedProviderPlugin', 'wpgs_generate_default_content'), 90, 3);
     add_filter('wpgs_oembed_provider_data_attachment', array('wpgs_OembedProviderPlugin', 'wpgs_generate_attachment_content'), 91, 2);
-    add_filter('wpgs_oembed_provider_data_post', array('wpgs_OembedProviderPlugin', 'wpgs_generate_post_content'), 91, 2);
-    add_filter('wpgs_oembed_provider_data_page', array('wpgs_OembedProviderPlugin', 'wpgs_generate_post_content'), 91, 2);
     add_action('wpgs_oembed_provider_render_json', array('wpgs_OembedProviderPlugin', 'wpgs_render_json'), 99, 2);
     add_action('wpgs_oembed_provider_render_xml', array('wpgs_OembedProviderPlugin', 'wpgs_render_xml'), 99);
   }
@@ -108,27 +106,15 @@ class wpgs_OembedProviderPlugin {
     $oembed_provider_data['author_name'] = $author->display_name;
     $oembed_provider_data['author_url'] = get_author_posts_url($author->ID, $author->nicename);
 
-
-
-
-    return $oembed_provider_data;
-  }
-
-  /**
-  * adds post/page specific content
-  *
-  * @param array $oembed_provider_data
-  * @param Object $post
-  */
-  public static function wpgs_generate_post_content($oembed_provider_data, $post) {
     if (function_exists('has_post_thumbnail') && has_post_thumbnail($post->ID)) {
       $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),large);
       $oembed_provider_data['thumbnail_url'] = $image[0];
       $oembed_provider_data['thumbnail_width'] = $image[1];
-      $oembed_provider_data['thumbnail_height'] = $image[2];
-    }
+      $oembed_provider_data['thumbnail_height'] = $image[2];}
+    
 
        $oembed_provider_data['html'] = $post->post_excerpt;
+
 
     return $oembed_provider_data;
   }
