@@ -371,7 +371,7 @@ final class Wp_Gnusocial {
             $uzanto_url = 'http://' . $nodo_url . '/' . $uzanto;
 
             $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
-            $respondo_url = 'http://' . $nodo_url . '/index.php?action=newnotice&status_textarea='. $helpo_mesagho . '&inreplyto=' . $konversacio_id;
+            $respondo_url = 'http://' . $nodo_url . '/notice/'. $konversacio_id;
 
             echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
 
@@ -382,6 +382,62 @@ final class Wp_Gnusocial {
                     echo "$('#comments').gsHovercard();";
                 echo '});';
             echo '</script>';
+            
+            ?>
+            <script>
+                function buildHTML( data, group ) {
+                    var at = "",
+                        desc = "<?php _e('Priskribo', 'wp_gnusocial'); ?>",
+                        notices = "",
+                        latest = "",
+                        subs = "<?php _e('Membroj', 'wp_gnusocial'); ?>",
+                        html,
+                        uid = new Date().getTime();
+
+                    // Redefine some things if we're dealing with @user
+                    if ( !group ) {
+                        at   = "@";
+                        desc = "Bio";
+                        subs = "<?php _e('sekvantoj', 'wp_gnusocial'); ?>";
+                        notices = "<span class='hc-notices'>" +
+                                "<span class='hc-count'>" + data.statuses_count + "</span> <?php _e('pepoj', 'wp_gnusocial'); ?>," +
+                                "</span>";
+                        latest = "<h3></span> <?php _e('Laste pepis', 'wp_gnusocial'); ?></h3>" +
+                            "<span class='hc-status'>" + data.status.text + "</span>";
+                    }
+
+                    html = "<div class='gs-hovercard'>" +
+                              "<div class='hc-content'>" +
+                                "<h2>" + ( data.name || data.fullname ) + "</h2>" +
+                                "<a href='" + ( data.statusnet_profile_url || data.url ) + "'>" + at + ( data.screen_name || data.fullname ) +
+                                  "<img src='" + ( data.profile_image_url || data.stream_logo ) + "' />" +
+                                "</a>" +
+                                "<p class='hc-stats'>" + notices +
+                                  "<span class='hc-subs'>" +
+                                    "<span class='hc-count'>" + ( data.followers_count || data.member_count ) + "</span> " + subs +
+                                  "</span>" +
+                                "</p>" +
+                                "<h3>" + desc + "</h3>" +
+                                "<span class='hc-bio'>" + ( data.description || "" ) + "</span>" + latest +
+                              "</div>" +
+                              "<div class='hc-actions'><a href='#' class='hc-follow'><?php _e('sekvi', 'wp_gnusocial'); ?></a>" +
+                              "<div class='hc-follow-form'>" +
+                                "<form>" +
+                                  "<fieldset>" +
+                                    "<label for='hc-profile-" + uid + "'><?php _e('Identigilo de via konto', 'wp_gnusocial'); ?></label>" +
+                                    "<input id='hc-profile-" + uid + "' type='text' placeholder='<?php _e('ekz. uzanto@ekzemplo.org', 'wp_gnusocial'); ?>' />" +
+                                    "<input type='hidden' name='profile' value='" + ( data.statusnet_profile_url || data.url ) + "' />" +
+                                    "<button type='submit'><?php _e('Sekvi', 'wp_gnusocial'); ?></button>" +
+                                  "</fieldset>" +
+                                "</form>" +
+                              "</div>" +
+                            "</div>" +
+                          "</div>";
+
+                    return html;
+                }
+            </script>
+<?php
 
       }
     }

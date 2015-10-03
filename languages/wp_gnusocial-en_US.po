@@ -109,3 +109,40 @@ msgid ""
 "afiŝon por ekuzi la novan komentosistemon."
 msgstr "Almost done! Connect your blog to GNU social and publish a new "
 "post to start using the new comment system"
+
+
+#: includes/wp-gnusocial-klaso.php:390
+msgid "Priskribo"
+msgstr "Description"
+
+#: includes/wp-gnusocial-klaso.php:393
+msgid "Membroj"
+msgstr "Members"
+
+#: includes/wp-gnusocial-klaso.php:401
+msgid "sekvantoj"
+msgstr "followers"
+
+#: includes/wp-gnusocial-klaso.php:403
+msgid "pepoj"
+msgstr "notices"
+
+#: includes/wp-gnusocial-klaso.php:405
+msgid "Laste pepis"
+msgstr "Latest"
+
+#: includes/wp-gnusocial-klaso.php:423
+msgid "sekvi"
+msgstr "subscribe"
+
+#: includes/wp-gnusocial-klaso.php:430
+msgid "Sekvi"
+msgstr "Subscribe"
+
+#: includes/wp-gnusocial-klaso.php:427
+msgid "Identigilo de via konto"
+msgstr "Your account ID"
+
+#: includes/wp-gnusocial-klaso.php:428
+msgid "ekz. uzanto@ekzemplo.org"
+msgstr "e.g. user@example.org"

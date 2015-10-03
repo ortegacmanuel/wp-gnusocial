@@ -1,56 +1,5 @@
 ( function( $ ) {
     /* private */
-    function buildHTML( data, group ) {
-        var at = "",
-            desc = "Description",
-            notices = "",
-            latest = "",
-            subs = "members",
-            html,
-            uid = new Date().getTime();
-
-        // Redefine some things if we're dealing with @user
-        if ( !group ) {
-            at   = "@";
-            desc = "Bio";
-            subs = "sekvantoj";
-            notices = "<span class='hc-notices'>" +
-                    "<span class='hc-count'>" + data.statuses_count + "</span> pepoj," +
-                    "</span>";
-            latest = "<h3>Laste pepis</h3>" +
-                "<span class='hc-status'>" + data.status.text + "</span>";
-        }
-
-        html = "<div class='gs-hovercard'>" +
-                  "<div class='hc-content'>" +
-                    "<h2>" + ( data.name || data.fullname ) + "</h2>" +
-                    "<a href='" + ( data.statusnet_profile_url || data.url ) + "'>" + at + ( data.screen_name || data.fullname ) +
-                      "<img src='" + ( data.profile_image_url || data.stream_logo ) + "' />" +
-                    "</a>" +
-                    "<p class='hc-stats'>" + notices +
-                      "<span class='hc-subs'>" +
-                        "<span class='hc-count'>" + ( data.friends_count || data.member_count ) + "</span> " + subs +
-                      "</span>" +
-                    "</p>" +
-                    "<h3>" + desc + "</h3>" +
-                    "<span class='hc-bio'>" + ( data.description || "" ) + "</span>" + latest +
-                  "</div>" +
-                  "<div class='hc-actions'><a href='#' class='hc-follow'>sekvi</a>" +
-                  "<div class='hc-follow-form'>" +
-                    "<form>" +
-                      "<fieldset>" +
-                        "<label for='hc-profile-" + uid + "'>Identigilo de via konto</label>" +
-                        "<input id='hc-profile-" + uid + "' type='text' placeholder='ekz. uzanto@ekzemplo.org' />" +
-                        "<input type='hidden' name='profile' value='" + ( data.statusnet_profile_url || data.url ) + "' />" +
-                        "<button type='submit'>Sekvi</button>" +
-                      "</fieldset>" +
-                    "</form>" +
-                  "</div>" +
-                "</div>" +
-              "</div>";
-
-        return html;
-    }
 
     function buildCard( data, $link ) {
         $link.on( "mouseenter", function() {
@@ -149,6 +98,8 @@
 
                         if ( $( this ).hasClass("h-card") ) {
                             $( this ).one( "mouseenter", getData );
+                        } else if ( $( this ).hasClass("url") ) {
+                            $( this ).one( "mouseenter", getData );    
                         } else if ( $( this ).text().match( /!\w+/ ) ) {
                             $( this ).one( "mouseenter", getData );
                         }
