@@ -165,7 +165,7 @@ class GsKonektilo {
         
         $message = $titolo . " " . $url  . " " . $priskribo . " ". $kategorioj;
         
-        $body = array( 'status' => $message );
+        $body = array( 'status' => $message, 'source' => 'wpgnusocial' );
         
         $response = wp_remote_post( $this->api_url, array(
 	        'method' => 'POST',
