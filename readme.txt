@@ -62,6 +62,8 @@ Your language isn't listed? Then feel free to and help make this plugin more acc
 * Añadir a la configuración de la url dos parámetros GET. El utm_medium y el utm_campaign. Por @voylinux@lamatriz.org Ver detalles en http://lamatriz.org/notice/124839
 * Revisar y corregir la duplicación de comentarios en WordPress
 * Implementar GNU social Querycards en la visualización de los comentarios en WordPress partiendo del trabajo de @chimo@sn.chromic.org Ver en: https://github.com/chimo/gs-querycards
+* Revisar y contemplar el manejo de peticiones http y https y las configuraciones de los nodos
+* Personalizar el formato de la publicación en GNU social
 
 = 0.2 =
 * Los comentarios muestran el nombre elegido por el usuario y no el nickname
