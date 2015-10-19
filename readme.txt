@@ -41,6 +41,7 @@ GNU social is a free social distributed networking platform. It helps people in 
 * Spanish
 * English
 * German -- contributed by [Frosch](http://blog.atari-frosch.de/)
+* Euskera -- contributed by [Gorka](http://teketen.com/)
 
 Your language isn't listed? Then feel free to and help make this plugin more accessible!
 
