@@ -293,15 +293,17 @@ final class Wp_Gnusocial {
                 $konversacio_id = get_post_meta( get_the_ID(), 'wpgs_conversation_id', true );
 
                 $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
-                $nodo_url = $nodo_url['host'];
+                $nodo_domajno = $nodo_url['host'];
+                $nodo_protokolo = $nodo_url['scheme'];
 
-                $atom_fluo_url = 'http://' . $nodo_url . '/api/statusnet/conversation/' .  $konversacio_id . '.atom';
+                $atom_fluo_url = $nodo_protokolo . '://' . $nodo_domajno . '/api/statusnet/conversation/' .  $konversacio_id . '.atom';
 
                 $atom_legilo = new AtomLegilo($atom_fluo_url);
 
                 $komentoj = $atom_legilo->legi(get_the_ID());
 
                 foreach ($komentoj as $komento) {
+
                     $datumoj = array(
                         'comment_post_ID' => get_the_ID(),
                         'comment_author' => $komento->auhtoro,

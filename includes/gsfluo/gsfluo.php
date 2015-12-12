@@ -109,12 +109,12 @@ class Elemento {
     function __construct($afisho_id, $auhtoro, $auhtoro_url, $auhtoro_salutnomo, $avataro, $enhavo, $dato) {
         
         $this->afisho_id = $afisho_id;
-        $this->auhtoro = $auhtoro;
-        $this->auhtoro_url = $auhtoro_url;
-        $this->auhtoro_salutnomo = $auhtoro_salutnomo;
-        $this->enhavo = $enhavo;
+        $this->auhtoro = (string) $auhtoro;
+        $this->auhtoro_url = (string) $auhtoro_url;
+        $this->auhtoro_salutnomo = (string) $auhtoro_salutnomo;
+        $this->enhavo = (string) $enhavo;
         $this->publikig_dato = $dato;
-        $this->avataro = $avataro;
+        $this->avataro = (string) $avataro;
     }
 
     /**
