@@ -2,8 +2,8 @@
 Contributors: nat23, deugarte, Rodma, mayra-rodriguez, carolitar, voylinux, elektrolupo
 Tags: GNU social, federated web, conversations, social web, statusnet, comments, commenting
 Requires at least: 3.2
-Tested up to: 4.4
-Stable tag: 0.2.7
+Tested up to: 4.4.2
+Stable tag: 0.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
