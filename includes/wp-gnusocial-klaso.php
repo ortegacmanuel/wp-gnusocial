@@ -266,8 +266,9 @@ final class Wp_Gnusocial {
         
         $status = new SimpleXMLElement(wp_remote_retrieve_body($respondo));
 
-        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->id), true);        
-
+        add_post_meta( $post->ID, 'wpgs_notice_id', (string)($status->id), true);        
+        add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->children('statusnet', true)->conversation_id), true);
+     
     }
 
     /**
@@ -366,6 +367,7 @@ final class Wp_Gnusocial {
       if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
 
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
+            $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true );
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_url = $nodo_url['host'];
             $konversacio_url = 'http://' . $nodo_url . '/conversation/' . $konversacio_id;
@@ -373,7 +375,7 @@ final class Wp_Gnusocial {
             $uzanto_url = 'http://' . $nodo_url . '/' . $uzanto;
 
             $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
-            $respondo_url = 'http://' . $nodo_url . '/notice/'. $konversacio_id;
+            $respondo_url = 'http://' . $nodo_url . '/notice/'. $pepo_id;
 
             echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
 
