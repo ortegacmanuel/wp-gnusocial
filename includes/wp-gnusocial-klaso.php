@@ -367,15 +367,20 @@ final class Wp_Gnusocial {
       if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
 
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
-            $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true );
+
+            if(!empty(get_post_meta( $post->ID, 'wpgs_notice_id', true ))){
+                $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true );
+            }else{
+                $pepo_id = $konversacio_id;
+            }
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_url = $nodo_url['host'];
-            $konversacio_url = 'http://' . $nodo_url . '/conversation/' . $konversacio_id;
+            $konversacio_url = 'https://' . $nodo_url . '/conversation/' . $konversacio_id;
             $uzanto = get_option( '_wpgs_salutnomo');
-            $uzanto_url = 'http://' . $nodo_url . '/' . $uzanto;
+            $uzanto_url = 'https://' . $nodo_url . '/' . $uzanto;
 
             $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
-            $respondo_url = 'http://' . $nodo_url . '/notice/'. $pepo_id;
+            $respondo_url = 'https://' . $nodo_url . '/notice/'. $pepo_id;
 
             echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
 
@@ -517,7 +522,7 @@ final class Wp_Gnusocial {
        * First try to get the avatar url from cache
        */
       if(!wp_cache_get( $user_nick, 'wpgs_avatars' )){
-        $url = 'http://' . $node_host .
+        $url = 'https://' . $node_host .
              '/api/statuses/user_timeline.json?screen_name=' . $user_nick;
 
         $img_path = self::wpgs_fetch_or_default($url);
@@ -528,7 +533,7 @@ final class Wp_Gnusocial {
       }
     }else{
       if(!wp_cache_get( $user_id, 'wpgs_avatars' )){
-        $url = 'http://' . $node_host .
+        $url = 'https://' . $node_host .
              '/api/statuses/user_timeline.json?user_id=' . $user_id;
 
         $img_path = self::wpgs_fetch_or_default($url);
