@@ -14,7 +14,7 @@
  * Description: GNU social based comment system for WordPress.
  * Author:      Las Indias
  * Author URI:  http://lasindias.com
- * Version:     0.2.8
+ * Version:     0.2.9
  * Text Domain: wp_gnusocial
  * Domain Path: /languages/
  */
