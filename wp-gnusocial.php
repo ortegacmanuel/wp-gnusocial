@@ -14,7 +14,7 @@
  * Description: GNU social based comment system for WordPress.
  * Author:      Las Indias
  * Author URI:  http://lasindias.com
- * Version:     0.2.9
+ * Version:     0.3.0
  * Text Domain: wp_gnusocial
  * Domain Path: /languages/
  */
@@ -42,6 +42,9 @@ require( plugin_dir_path( __FILE__ ) . 'includes/wp-gnusocial-klaso.php' );
 
 // Get the plugin running.
 add_action( 'plugins_loaded', array( 'Wp_Gnusocial', 'get_instance' ) );
+
+// Load widgets
+require( plugin_dir_path( __FILE__ ) . 'includes/widgets/widget-konversacioj.php' );
 
 // Check that the admin is loaded.
 if ( is_admin() ) {

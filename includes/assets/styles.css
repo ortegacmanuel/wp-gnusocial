@@ -1,0 +1,29 @@
+.ftrajo-korpo .ftrajho-elemento figure {
+    margin-bottom: 12px;
+}
+
+.ftrajho-elemento {
+    margin-bottom: 20px;
+}
+
+
+.ftrajo-vakigo {
+    clear: both;
+    padding: 30px 0px;
+}
+
+figure img {
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.vakigi {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}

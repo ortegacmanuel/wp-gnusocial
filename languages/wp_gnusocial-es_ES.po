@@ -144,3 +144,24 @@ msgstr "ID de tu cuenta"
 #: includes/wp-gnusocial-klaso.php:428
 msgid "ekz. uzanto@ekzemplo.org"
 msgstr "p.e. usuario@ejemplo.org"
+
+msgid "Federitaj konversacioj"
+msgstr "Conversaciones federadas"
+
+
+msgid "Listigo de la afiŝoj publikigitaj en via nodo de GNU social"
+msgstr "Lista de posts publicados en tu nodo de GNU social"
+
+
+msgid "Titolo:"
+msgstr "Título:"
+
+
+msgid "Kiom da afiŝoj listigi:"
+msgstr "Cuantos posts monstar:"
+
+msgid "Nombro da afiŝoj listigotaj"
+msgstr "Número de posts a listar"
+
+msgid "vidi ĉiujn"
+msgstr "ver todas"
