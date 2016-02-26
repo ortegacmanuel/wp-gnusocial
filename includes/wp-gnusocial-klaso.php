@@ -367,12 +367,12 @@ final class Wp_Gnusocial {
       if( !(get_post_meta( $post->ID, 'wpgs_conversation_id', true ) == '') ) {
 
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
+            $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true ));
 
-            if(!empty(get_post_meta( $post->ID, 'wpgs_notice_id', true ))){
-                $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true );
-            }else{
+            if(empty($pepo_id){
                 $pepo_id = $konversacio_id;
             }
+
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
             $nodo_domajno = $nodo_url['host'];
             $nodo_protokolo = $nodo_url['scheme'];
