@@ -374,15 +374,17 @@ final class Wp_Gnusocial {
                 $pepo_id = $konversacio_id;
             }
             $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
-            $nodo_url = $nodo_url['host'];
-            $konversacio_url = 'https://' . $nodo_url . '/conversation/' . $konversacio_id;
+            $nodo_domajno = $nodo_url['host'];
+            $nodo_protokolo = $nodo_url['scheme'];
+
+            $konversacio_url = $nodo_protokolo . '://' . $nodo_url . '/conversation/' . $konversacio_id;
             $uzanto = get_option( '_wpgs_salutnomo');
-            $uzanto_url = 'https://' . $nodo_url . '/' . $uzanto;
+            $uzanto_url = $nodo_protokolo . '://' . $nodo_domajno . '/' . $uzanto;
 
             $helpo_mesagho = __('Forigu+tion+ĉi+kaj+skribu+vian+komenton', 'wp_gnusocial');
-            $respondo_url = 'https://' . $nodo_url . '/notice/'. $pepo_id;
+            $respondo_url = $nodo_protokolo . '://' . $nodo_domajno . '/notice/'. $pepo_id;
 
-            echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_url . '</a></h3>';
+            echo '<a href="' . $respondo_url . '"><h3 id="commentform" class="comment-form">' . __('Klaku ĉi tie por sendi komenton per', 'wp_gnusocial') . ' ' .  $nodo_domajno . '</a></h3>';
 
             printf('<p class="comment-form-comment"> ' . __('Se vi havas uzanton ĉe %s vi povos rekte komenti. Se vi havas <strong>uzanton ĉe alia <a href="http://www.skilledtests.com/wiki/List_of_Independent_Statusnet_Instances">nodo de GNU social</strong></a>, vi devas sekvi <a href="%s">la uzanton %s</a> por ke la konversacio aperu en via nodo kaj vi povu aldoni komentojn al ĝi.', 'wp_gnusocial') . '', $nodo_url, $uzanto_url, $uzanto);
 
@@ -517,12 +519,15 @@ final class Wp_Gnusocial {
    */
   function wpgs_get_avatar_url($node_host, $user_nick, $user_id = null) {
 
+    $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
+    $nodo_protokolo = $nodo_url['scheme'];
+
     if($user_nick){
       /**
        * First try to get the avatar url from cache
        */
       if(!wp_cache_get( $user_nick, 'wpgs_avatars' )){
-        $url = 'https://' . $node_host .
+        $url = $nodo_protokolo . '://' . $node_host .
              '/api/statuses/user_timeline.json?screen_name=' . $user_nick;
 
         $img_path = self::wpgs_fetch_or_default($url);
@@ -533,7 +538,7 @@ final class Wp_Gnusocial {
       }
     }else{
       if(!wp_cache_get( $user_id, 'wpgs_avatars' )){
-        $url = 'https://' . $node_host .
+        $url = $nodo_protokolo . '://' . $node_host .
              '/api/statuses/user_timeline.json?user_id=' . $user_id;
 
         $img_path = self::wpgs_fetch_or_default($url);
