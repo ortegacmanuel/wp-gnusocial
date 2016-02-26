@@ -60,11 +60,14 @@ class AtomLegilo{
 
             if($ero->author->children('poco', true)->displayName !=NULL && $ero->content!='' && $n< $this->elemento_nombro){
 
-                $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->name, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
+                if(!preg_match('/(\share)$/i', $ero->activity->verb)) {
 
-                //$elemento->aranghi_kategoriojn($ero->category);
+                    $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->name, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
 
-                array_push($elementoj, $elemento);
+                    //$elemento->aranghi_kategoriojn($ero->category);
+
+                    array_push($elementoj, $elemento);
+                }
             }
 	        $n++; 
         }
