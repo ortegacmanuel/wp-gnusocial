@@ -369,7 +369,7 @@ final class Wp_Gnusocial {
             $konversacio_id = get_post_meta( $post->ID, 'wpgs_conversation_id', true );
             $pepo_id = get_post_meta( $post->ID, 'wpgs_notice_id', true );
 
-            if(empty($pepo_id){
+            if(empty($pepo_id)){
                 $pepo_id = $konversacio_id;
             }
 
