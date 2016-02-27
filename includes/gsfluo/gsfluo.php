@@ -60,7 +60,7 @@ class AtomLegilo{
 
             if($ero->author->children('poco', true)->displayName !=NULL && $ero->content!='' && $n< $this->elemento_nombro){
 
-                if(!preg_match('/(\/share)$/i', $ero->activity->verb)) {
+                if(!preg_match('/(\/share)$/i', $ero->children('activity', true)->verb)) {
 
                     $elemento = new Elemento($afish_id, $ero->author->children('poco', true)->displayName, $ero->author->uri, $ero->author->name, $ero->author->link[1]->attributes()->href, $ero->content, date_create($ero->published));
 
