@@ -152,6 +152,9 @@ final class Wp_Gnusocial {
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - malneto publikiĝas - de WordPress A
 		add_action( 'draft_to_publish', array( $this, 'gs_publikigo' ), 10, 1);
 
+		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - reviziita afiŝo publikiĝas - de WordPress A
+		add_action( 'pending_to_publish', array( $this, 'gs_publikigo' ), 10, 1);
+
 		// Publikigi enskribon en nodon de GNU social ĉe publikiĝo - planita afiŝo publikiĝas - de WordPress A
 		add_action( 'future_to_publish', array( $this, 'gs_publikigo' ), 10, 1 );
 
@@ -484,7 +487,7 @@ final class Wp_Gnusocial {
     $img_default = get_option( 'avatar_default');
 
     if($img_default == 'blank'){
-      $img_path = get_bloginfo('url') . 'wp-includes/images/blank.gif';
+      $img_path = get_bloginfo('url') . '/wp-includes/images/blank.gif';
     }else{
       $img_path = 'http://0.gravatar.com/avatar/?d=' . $img_default . '&s='. self::AVATAR_SIZE;
     }

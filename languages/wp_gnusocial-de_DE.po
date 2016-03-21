@@ -46,7 +46,7 @@ msgstr "WP-GNU social"
 #: includes/admin/wp-gnusocial-klaso-admin.php:139
 #: includes/admin/wp-gnusocial-klaso-admin.php:139
 msgid "API-url de via nodo"
-msgstr "URL der API Deiner Instanz"
+msgstr "API-URL Deiner Instanz"
 
 #: includes/admin/wp-gnusocial-klaso-admin.php:143
 #: includes/admin/wp-gnusocial-klaso-admin.php:143
@@ -107,40 +107,40 @@ msgid ""
 "Preskaŭ farite! Konektu vian blogon kun GNU social kaj publikigu novan "
 "afiŝon por ekuzi la novan komentosistemon."
 msgstr "Fast fertig! Verbinde Dein Blog mit GNUsocial und publiziere "
-"einen neuen Artikel, umas neue Kommentarsystem zu nutzen."
+"einen neuen Artikel, um das neue Kommentarsystem zu nutzen."
 
 #: includes/wp-gnusocial-klaso.php:390
 msgid "Priskribo"
-msgstr ""
+msgstr "Beschreibung"
 
 #: includes/wp-gnusocial-klaso.php:393
 msgid "Membroj"
-msgstr ""
+msgstr "Mitglieder"
 
 #: includes/wp-gnusocial-klaso.php:401
 msgid "sekvantoj"
-msgstr ""
+msgstr "Follower"
 
 #: includes/wp-gnusocial-klaso.php:403
 msgid "pepoj"
-msgstr ""
+msgstr "Notices"
 
 #: includes/wp-gnusocial-klaso.php:405
 msgid "Laste pepis"
-msgstr ""
+msgstr "Letzte"
 
 #: includes/wp-gnusocial-klaso.php:423
 msgid "sekvi"
-msgstr ""
+msgstr "folgen"
 
 #: includes/wp-gnusocial-klaso.php:430
 msgid "Sekvi"
-msgstr ""
+msgstr "Folgen"
 
 #: includes/wp-gnusocial-klaso.php:427
 msgid "Identigilo de via konto"
-msgstr ""
+msgstr "Deine Account-ID"
 
 #: includes/wp-gnusocial-klaso.php:428
 msgid "ekz. uzanto@ekzemplo.org"
-msgstr ""
+msgstr "z. B. user@example.org"
