@@ -46,13 +46,13 @@ final class Wp_Gnusocial {
 	 *
 	 */
 	const URL_AVATAR_TYPE   = 'url';
-    const USER_AVATAR_TYPE  = 'user';
-    const EMPTY_AVATAR_TYPE = 'empty';
+  const USER_AVATAR_TYPE  = 'user';
+  const EMPTY_AVATAR_TYPE = 'empty';
 
-    /**
-     * The avatar size we use
-     */
-    const AVATAR_SIZE = 48;
+  /**
+   * The avatar size we use
+   */
+  const AVATAR_SIZE = 48;
 
 	/**
 	 * Get the only instance of this class.
@@ -160,25 +160,25 @@ final class Wp_Gnusocial {
 
 		add_action('pre_get_comments', array( $this, 'load_comments_wpgs_template' ));
 
-        add_filter( 'comment_form_default_fields', array( $this, 'wpgs_comment_form_fields' ) );
+    add_filter( 'comment_form_default_fields', array( $this, 'wpgs_comment_form_fields' ) );
 
-        add_filter( 'comment_form_defaults', array( $this, 'wpgs_comment_form' ) );
+    add_filter( 'comment_form_defaults', array( $this, 'wpgs_comment_form' ) );
 
-        add_action('comment_form', array( $this, 'wpgs_comment_button' ));
+    add_action('comment_form', array( $this, 'wpgs_comment_button' ));
 
-        add_filter('get_avatar', array($this,'wpgs_akiri_avataron'), 10, 5);
-        
-        $apiurl = get_option( '_wpgs_apiurl');
-        $salutnomo = get_option( '_wpgs_salutnomo');
-        $pasvorto = get_option( '_wpgs_pasvorto');
-        
-        if (empty($apiurl) || empty($salutnomo) || empty($pasvorto)) {
-            
-            add_action('admin_notices', array($this, 'atentigi_pri_agordomanko'));
-        }
+    add_filter('pre_get_avatar', array($this,'wpgs_akiri_avataron'), 10, 5);
+
+    $apiurl = get_option( '_wpgs_apiurl');
+    $salutnomo = get_option( '_wpgs_salutnomo');
+    $pasvorto = get_option( '_wpgs_pasvorto');
+
+    if (empty($apiurl) || empty($salutnomo) || empty($pasvorto)) {
+
+        add_action('admin_notices', array($this, 'atentigi_pri_agordomanko'));
+    }
 
 	}
-	
+
 	/**
 	 * Load the text domain.
 	 *
@@ -232,7 +232,7 @@ final class Wp_Gnusocial {
             echo "</style>";
         }
     }
-    
+
     public function atentigi_pri_agordomanko() {
         $screen = get_current_screen();
         if ($screen->base === 'plugins') {
@@ -247,9 +247,9 @@ final class Wp_Gnusocial {
     public function gs_publikigo($post) {
 
         $title = $post->post_title;
-        $priskribo = $post->post_excerpt;        
+        $priskribo = $post->post_excerpt;
         $permalink = get_permalink( $post->ID );
-        
+
         //$kategorioj = get_the_category($ID);
 
         //foreach($kategorioj as $kategorio) {
@@ -266,12 +266,12 @@ final class Wp_Gnusocial {
         $gs_konektilo = new GsKonektilo(get_option( '_wpgs_apiurl'), get_option( '_wpgs_salutnomo'), get_option( '_wpgs_pasvorto'));
 
         $respondo = $gs_konektilo->afishi($title, $permalink, $priskribo, $kategoricheno);
-        
+
         $status = new SimpleXMLElement(wp_remote_retrieve_body($respondo));
 
-        add_post_meta( $post->ID, 'wpgs_notice_id', (string)($status->id), true);        
+        add_post_meta( $post->ID, 'wpgs_notice_id', (string)($status->id), true);
         add_post_meta( $post->ID, 'wpgs_conversation_id', (string)($status->children('statusnet', true)->conversation_id), true);
-     
+
     }
 
     /**
@@ -288,12 +288,12 @@ final class Wp_Gnusocial {
     public function load_comments_wpgs_template($comment_template){
 
         if( !(get_post_meta( get_the_ID(), 'wpgs_conversation_id', true ) == '') ) {
-        
+
             if( (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '') OR
                 (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '0')) {
-        
+
                 update_post_meta( get_the_ID(), 'wpgs_updating', '1');
-                
+
                 $konversacio_id = get_post_meta( get_the_ID(), 'wpgs_conversation_id', true );
 
                 $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
@@ -326,9 +326,9 @@ final class Wp_Gnusocial {
                 }
 
                 $atom_legilo->ghisdatigi_daton(get_the_ID());
-                
+
                 update_post_meta( get_the_ID(), 'wpgs_updating', '0');
-        
+
             }
         }
     }
@@ -396,7 +396,7 @@ final class Wp_Gnusocial {
                     echo "$('#comments').gsHovercard();";
                 echo '});';
             echo '</script>';
-            
+
             ?>
             <script>
                 function buildHTML( data, group ) {
@@ -480,28 +480,14 @@ final class Wp_Gnusocial {
     }
 
   /**
-   * This one will return the url for the default avatar that is configured
-   * in the blog
-   */
-  function wpgs_get_default_avatar() {
-    $img_default = get_option( 'avatar_default');
-
-    if($img_default == 'blank'){
-      $img_path = get_bloginfo('url') . '/wp-includes/images/blank.gif';
-    }else{
-      $img_path = 'http://0.gravatar.com/avatar/?d=' . $img_default . '&s='. self::AVATAR_SIZE;
-    }
-
-    return $img_path;
-  }
-
-  /**
    * Get the $img_path and return the formated img tag
    */
   function wpgs_format_avatar_tag($img_path) {
-    return  $img_tag   = '<img src="' . $img_path . '" class="avatar avatar-' .
-                       self::AVATAR_SIZE.' photo" height="' . self::AVATAR_SIZE .
-                       '" width="' . self::AVATAR_SIZE . '">';
+	  if(! is_null( $img_path ) )
+	      $img_tag   = '<img src="' . $img_path . '" class="avatar avatar-' .
+	                       self::AVATAR_SIZE.' photo" height="' . self::AVATAR_SIZE .
+	                       '" width="' . self::AVATAR_SIZE . '">';
+	   return $img_tag;
   }
 
 
@@ -510,47 +496,55 @@ final class Wp_Gnusocial {
     if(wp_remote_retrieve_response_code($response) == 200){
       $body      = json_decode(wp_remote_retrieve_body($response));
       $img_path  = $body[0]->user->profile_image_url;
-
-    }else{
-      $img_path = self::wpgs_get_default_avatar();
     }
     return $img_path;
   }
+
+	function wpgs_get_protokolo() {
+		$nodo_url = parse_url(get_option( '_wpgs_apiurl'));
+		$protokolo = $nodo_url['scheme'];
+		return $protokolo;
+	}
   /**
    * Check if we got it in cache and if not, let's fecth the user's avatar from
    * the correct gnu social node
    */
-  function wpgs_get_avatar_url($node_host, $user_nick, $user_id = null) {
+	 function wpgs_get_avatar_url_by_nick($node_host, $user_nick) {
+		 $nodo_protokolo = self::wpgs_get_protokolo();
 
-    $nodo_url = parse_url(get_option( '_wpgs_apiurl'));
-    $nodo_protokolo = $nodo_url['scheme'];
+		 /**
+			* First try to get the avatar url from cache
+			*/
+		 if(!wp_cache_get( $user_nick, 'wpgs_avatars' )){
+			 $url = $nodo_protokolo . '://' . $node_host .
+						'/api/statuses/user_timeline.json?screen_name=' . $user_nick;
 
-    if($user_nick){
-      /**
-       * First try to get the avatar url from cache
-       */
-      if(!wp_cache_get( $user_nick, 'wpgs_avatars' )){
-        $url = $nodo_protokolo . '://' . $node_host .
-             '/api/statuses/user_timeline.json?screen_name=' . $user_nick;
+				$img_path = self::wpgs_fetch_or_default($url);
+				// Add the avatar url to Wordpress cache
+				if( ! is_null( $img_path ) )
+		 			wp_cache_add( $user_nick, $img_path, 'wpgs_avatars');
+		 }else{
+			 $img_path = wp_cache_get( $user_nick, 'wpgs_avatars' );
+		 }
 
-        $img_path = self::wpgs_fetch_or_default($url);
-        // Add the avatar url to Wordpress cache
-        wp_cache_add( $user_nick, $img_path, 'wpgs_avatars');
-      }else{
-        $img_path = wp_cache_get( $user_nick, 'wpgs_avatars' );
-      }
-    }else{
-      if(!wp_cache_get( $user_id, 'wpgs_avatars' )){
+     $img_tag = self::wpgs_format_avatar_tag($img_path);
+
+     return $img_tag;
+	 }
+
+	 function wpgs_get_avatar_url_by_id($node_host, $user_id) {
+		 $nodo_protokolo = self::wpgs_get_protokolo();
+
+    if(!wp_cache_get( $user_id, 'wpgs_avatars' )){
         $url = $nodo_protokolo . '://' . $node_host .
              '/api/statuses/user_timeline.json?user_id=' . $user_id;
 
         $img_path = self::wpgs_fetch_or_default($url);
         // Add the avatar url to Wordpress cache
-        wp_cache_add( $user_id, $img_path, 'wpgs_avatars');
-      }else{
-        $img_path = wp_cache_get( $user_id, 'wpgs_avatars' );
-      }
-
+				if( ! is_null( $img_path ) )
+					wp_cache_add( $user_id, $img_path, 'wpgs_avatars');
+    }else{
+      $img_path = wp_cache_get( $user_id, 'wpgs_avatars' );
     }
 
     $img_tag = self::wpgs_format_avatar_tag($img_path);
@@ -566,8 +560,7 @@ final class Wp_Gnusocial {
     $user_nick = $user_data[0];
     $node_host = $user_data[1];
 
-    $img_tag = self::wpgs_get_avatar_url($node_host, $user_nick);
-
+    $img_tag = self::wpgs_get_avatar_url_by_nick($node_host, $user_nick);
 
     return $img_tag;
   }
@@ -575,14 +568,14 @@ final class Wp_Gnusocial {
   /**
    * This one is here to keep backwards compatibility
    * we had comments from the first version wich had their image stored as a url
-   * but ... Hey! Let's give them their new avater instead!  ;)
+   * but ... Hey! Let's give them their new avatar instead!  ;)
    */
 
   function wpgs_get_img_url_users_avatar($comment) {
     $node_host = parse_url($comment->comment_author_url, PHP_URL_HOST);
     $user_url_data = explode('/', $comment->comment_author_url);
     $user_id = array_pop($user_url_data);
-    return self::wpgs_get_avatar_url($node_host, $user_nick = null, $user_id );
+    return self::wpgs_get_avatar_url_by_id($node_host, $user_id);
   }
 
   /**
@@ -591,9 +584,7 @@ final class Wp_Gnusocial {
   function wpgs_get_current_avatar($comment, $avatar_type) {
     if($avatar_type == self::USER_AVATAR_TYPE){
       $avatar = self::wpgs_get_avatar_by_user($comment);
-    }elseif($avatar_type == self::EMPTY_AVATAR_TYPE){
-      $avatar = self::wpgs_format_avatar_tag(self::wpgs_get_default_avatar());
-    }else{
+		}elseif($avatar_type == self::URL_AVATAR_TYPE){
       $avatar = self::wpgs_get_img_url_users_avatar($comment);
     }
 
