@@ -492,7 +492,7 @@ final class Wp_Gnusocial {
 
 
   function wpgs_fetch_or_default($url) {
-    $response = wp_remote_get($url);
+    $response = wp_remote_get($url, array( 'timeout' => 45 ));
     if(wp_remote_retrieve_response_code($response) == 200){
       $body      = json_decode(wp_remote_retrieve_body($response));
       $img_path  = $body[0]->user->profile_image_url;
