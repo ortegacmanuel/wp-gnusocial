@@ -26,6 +26,8 @@ final class Wp_Gnusocial {
 	 */
 	const VERSION = '0.0.1';
 
+    public $aktualigas = 0;
+
 	/**
 	 * The plugin slug.
 	 *
@@ -289,10 +291,11 @@ final class Wp_Gnusocial {
 
         if( !(get_post_meta( get_the_ID(), 'wpgs_conversation_id', true ) == '') ) {
 
-            if( (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '') OR
-                (get_post_meta( get_the_ID(), 'wpgs_updating', true ) == '0')) {
+            if( $this->aktualigas != 1) {
 
-                update_post_meta( get_the_ID(), 'wpgs_updating', '1');
+                $this->aktualigas = 1;
+
+                //update_post_meta( get_the_ID(), 'wpgs_updating', '1');
 
                 $konversacio_id = get_post_meta( get_the_ID(), 'wpgs_conversation_id', true );
 
@@ -327,7 +330,7 @@ final class Wp_Gnusocial {
 
                 $atom_legilo->ghisdatigi_daton(get_the_ID());
 
-                update_post_meta( get_the_ID(), 'wpgs_updating', '0');
+                $this->aktualigas = 0;
 
             }
         }
